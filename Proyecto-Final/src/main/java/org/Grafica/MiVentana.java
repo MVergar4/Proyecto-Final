@@ -14,7 +14,7 @@ public class MiVentana extends JFrame {
     public MiVentana() {
         super();
         pantalla= new PantallaPrincipal();
-        this.setTitle("Expendedor");
+        this.setTitle("BusesDDR");
         setSize(1600, 900);
         add(pantalla);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

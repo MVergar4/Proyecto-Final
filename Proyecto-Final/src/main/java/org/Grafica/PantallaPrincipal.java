@@ -6,7 +6,6 @@ import java.awt.*;
  * Panel principal que maneja las otras dos pantallas
  */
 public class PantallaPrincipal extends JPanel {
-    private PantallaPersonal pantallaPersonal;
     private PantallaPaginaWeb pantallaPaginaWeb;
     /**
      * Constructor del panel
@@ -16,12 +15,8 @@ public class PantallaPrincipal extends JPanel {
         super();
         setLayout(null);
 
-        pantallaPersonal=new PantallaPersonal();
-        pantallaPersonal.setBounds(550,100,1000,600);
-        this.add(pantallaPersonal);
-
         pantallaPaginaWeb=new PantallaPaginaWeb();
-        pantallaPaginaWeb.setBounds(0,0,500,750);
+        pantallaPaginaWeb.setBounds(0,10,1520,770);
         this.add(pantallaPaginaWeb);
 
         setBackground(Color.darkGray);
