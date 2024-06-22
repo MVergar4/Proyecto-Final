@@ -6,14 +6,14 @@ import javax.swing.*;
  */
 public class MiVentana extends JFrame {
     /** Pantalla principal */
-    private PantallaPrincipal pantalla;
+    private PantallaPaginaWeb pantalla;
 
     /**
      * Constructor que asigna la pantalla, el título, el tamaño y las necesidades básicas de una ventana
      */
     public MiVentana() {
         super();
-        pantalla= new PantallaPrincipal();
+        pantalla= new PantallaPaginaWeb();
         this.setTitle("BusesDDR");
         setSize(1540, 820);
         add(pantalla);
