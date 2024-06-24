@@ -9,7 +9,7 @@ public class PantallaChillan extends JPanel {
         setBackground(new Color(255, 191, 213));
     }
     @Override
-    public void paintComponents(Graphics g) {
-        super.paintComponents(g);
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
     }
 }

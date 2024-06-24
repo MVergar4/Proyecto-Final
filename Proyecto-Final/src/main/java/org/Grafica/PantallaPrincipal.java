@@ -4,22 +4,22 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PantallaPrincipal extends JPanel {
-    private PantallaConcepcion concepcion;
-    private PantallaTemuco temuco;
-    private PantallaChillan chillan;
+    private PantallaAutobuses concepcion;
+    private PantallaAutobuses temuco;
+    private PantallaAutobuses chillan;
     public PantallaPrincipal(){
         super();
         this.setLayout(null);
         setBackground(new Color(30, 31, 34));
 
-        concepcion = new PantallaConcepcion();
+        concepcion = new PantallaAutobuses(new Color(163, 216, 241));
         concepcion.setBounds(0, 0, 400, 800);
         this.add(concepcion);
-        temuco = new PantallaTemuco();
-        temuco.setBounds(400, 0, 400, 800);
+        temuco = new PantallaAutobuses(new Color(255, 255, 185));
+        temuco.setBounds(390, 0, 400, 800);
         this.add(temuco);
-        chillan = new PantallaChillan();
-        chillan.setBounds(800, 0, 400, 800);
+        chillan = new PantallaAutobuses(new Color(255, 191, 213));
+        chillan.setBounds(780, 0, 400, 800);
         this.add(chillan);
     }
     @Override

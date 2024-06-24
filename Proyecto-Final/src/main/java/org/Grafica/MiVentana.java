@@ -15,7 +15,7 @@ public class MiVentana extends JFrame {
         super();
         pantalla= new PantallaPrincipal();
         this.setTitle("BusesDDR");
-        setSize(1540, 820);
+        setSize(1920, 1080);
         add(pantalla);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
