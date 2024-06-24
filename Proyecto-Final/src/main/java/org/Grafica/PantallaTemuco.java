@@ -3,10 +3,10 @@ package org.Grafica;
 import javax.swing.*;
 import java.awt.*;
 
-public class PantallaConcepcion extends JPanel {
-    public PantallaConcepcion() {
+public class PantallaTemuco extends JPanel {
+    public PantallaTemuco() {
         super();
-        setBackground(new Color(163, 216, 241));
+        setBackground(new Color(255, 255, 185));
     }
     @Override
     public void paintComponent(Graphics G){
