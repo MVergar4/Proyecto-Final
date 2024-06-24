@@ -3,10 +3,10 @@ package org.Grafica;
 import javax.swing.*;
 import java.awt.*;
 
-public class PantallaPaginaWeb extends JPanel {
-    public PantallaPaginaWeb(){
+public class PantallaConcepcion extends JPanel {
+    public PantallaConcepcion() {
         super();
-        setBackground(Color.gray);
+        setBackground(Color.cyan);
     }
     @Override
     public void paintComponent(Graphics G){
