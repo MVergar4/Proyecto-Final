@@ -1,7 +1,7 @@
 package org.Logica;
 
 public abstract class Asiento {
-    private int precio;
+    protected int precio;
     private boolean disponible;
     public Asiento() {
         this.disponible = true;
