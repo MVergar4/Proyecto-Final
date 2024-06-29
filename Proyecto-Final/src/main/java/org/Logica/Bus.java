@@ -1,5 +1,7 @@
 package org.Logica;
 
-public abstract class Bus {
+import java.util.ArrayList;
 
+public abstract class Bus {
+    protected ArrayList<Asiento> asientos = new ArrayList<>();
 }
