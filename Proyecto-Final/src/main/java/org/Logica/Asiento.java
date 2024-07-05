@@ -8,7 +8,7 @@ public abstract class Asiento {
         this.disponible = true;
         this.fila = s;
     }
-    public boolean estaDisonible() {
+    public boolean estaDisponible() {
         return disponible;
     }
     public void ocuparAsiento() {
