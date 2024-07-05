@@ -1,12 +1,16 @@
 package org.Grafica;
 
+import org.Logica.Aplicacion;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class PantallaAutobuses extends JPanel {
-    public PantallaAutobuses(Color color) {
+    private Aplicacion aplicacion;
+    public PantallaAutobuses(Color color, Aplicacion a) {
         super();
         setBackground(color);
+        aplicacion=a;
     }
     @Override
     public void paintComponent(Graphics g) {

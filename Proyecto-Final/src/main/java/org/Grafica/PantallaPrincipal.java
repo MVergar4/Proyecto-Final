@@ -1,11 +1,14 @@
 package org.Grafica;
 
+import org.Logica.Aplicacion;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class PantallaPrincipal extends JPanel {
+    private Aplicacion aplicacion;
     private PantallaAutobuses concepcion;
     private PantallaAutobuses temuco;
     private PantallaAutobuses chillan;
@@ -14,11 +17,12 @@ public class PantallaPrincipal extends JPanel {
         super();
         this.setLayout(null);
         setBackground(new Color(30, 31, 34));
+        aplicacion=new Aplicacion();
 
-        concepcion = new PantallaAutobuses(new Color(163, 216, 241));
-        temuco = new PantallaAutobuses(new Color(255, 255, 185));
-        chillan = new PantallaAutobuses(new Color(255, 191, 213));
-        santiago = new PantallaAutobuses(new Color(255, 170, 113));
+        concepcion = new PantallaAutobuses(new Color(163, 216, 241),aplicacion);
+        temuco = new PantallaAutobuses(new Color(255, 255, 185),aplicacion);
+        chillan = new PantallaAutobuses(new Color(255, 191, 213),aplicacion);
+        santiago = new PantallaAutobuses(new Color(255, 170, 113),aplicacion);
 
         concepcion.setBounds(0, 0, 400, 800);
         this.add(concepcion);
