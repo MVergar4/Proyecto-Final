@@ -4,4 +4,4 @@ Francisco Sebastián Cifuentes Ramírez,
 Marcelo Adolfo Vergara Fierro.
 
 Boceto de la interfaz
-![Boceto_de_la_interfaz](https://github.com/MVergar4/Proyecto-Final/assets/167582843/6282076a-1598-4e32-9eb1-5c676846f19f)
+![Boceto_de_la_interfaz](https://github.com/MVergar4/Proyecto-Final/assets/167582843/79f6a576-ba1d-4575-9279-cc29a4b704d3)
