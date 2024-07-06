@@ -1,11 +1,13 @@
 package org.Grafica;
 
 import org.Logica.Aplicacion;
+import org.Logica.BoletoBus;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 public class PantallaPrincipal extends JPanel {
     private Aplicacion aplicacion;
@@ -48,5 +50,9 @@ public class PantallaPrincipal extends JPanel {
     @Override
     public void paintComponent(Graphics G){
         super.paintComponent(G);
+    }
+
+    public PantallaAutobuses getChillan() {
+        return chillan;
     }
 }

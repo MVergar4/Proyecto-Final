@@ -1,12 +1,16 @@
 package org.Logica;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Aplicacion {
+    private Asiento asientoSeleccionado;
+    private ArrayList<BoletoBus> boletoBuses;
     private Recorrido santiago;
     private Recorrido temuco;
     private Recorrido chillan;
     public Aplicacion(){
+        boletoBuses=new ArrayList<>();
         santiago=new Recorrido("Santiago");
         temuco=new Recorrido("temuco");
         chillan=new Recorrido("chillan");
@@ -21,7 +25,7 @@ public class Aplicacion {
             return chillan;
         }
     }
-    public BoletoBus comprarPasaje(Asiento a){
-        return new BoletoBus(a);
+    public BoletoBus comprarPasaje(){
+        return new BoletoBus(asientoSeleccionado);
     }
 }

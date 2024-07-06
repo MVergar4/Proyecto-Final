@@ -4,9 +4,11 @@ public abstract class Asiento {
     protected int precio;
     private boolean disponible;
     private String fila;
-    public Asiento(String s) {
+    private Bus bus;
+    public Asiento(String s,Bus b) {
         this.disponible = true;
         this.fila = s;
+        this.bus=b;
     }
     public boolean estaDisponible() {
         return disponible;
@@ -19,5 +21,8 @@ public abstract class Asiento {
     }
     public int getPrecio(){
         return precio;
+    }
+    public Bus getBus(){
+        return bus;
     }
 }
