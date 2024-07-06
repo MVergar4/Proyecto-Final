@@ -14,4 +14,10 @@ public abstract class Asiento {
     public void ocuparAsiento() {
         disponible = false;
     }
+    public String getFila(){
+        return fila;
+    }
+    public int getPrecio(){
+        return precio;
+    }
 }
