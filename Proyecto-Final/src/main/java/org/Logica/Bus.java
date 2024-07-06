@@ -18,7 +18,14 @@ public abstract class Bus {
         }
         return contador + ((numero - 1) * 4);
     }
+    public boolean revisarAsiento(String l, int n) {
+        Asiento temp = asientos.get(transformarFila(l, n));
+        return temp.estaDisponible();
+    }
     public void reservarAsiento(String l, int n) {
-        asientos.get(transformarFila(l, n)).ocuparAsiento();
+        Asiento temp = asientos.get(transformarFila(l, n));
+        if (revisarAsiento(l, n)) {
+            temp.ocuparAsiento();
+        }
     }
 }
