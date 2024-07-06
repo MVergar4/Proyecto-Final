@@ -5,9 +5,8 @@ public abstract class Asiento {
     private boolean disponible;
     private String fila;
     private Bus bus;
-    public Asiento(String s,Bus b) {
+    public Asiento(Bus b) {
         this.disponible = true;
-        this.fila = s;
         this.bus=b;
     }
     public boolean estaDisponible() {

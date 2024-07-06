@@ -6,18 +6,13 @@ public class Bus2Piso extends Bus {
     public Bus2Piso(LocalTime L,String d) {
         super(L,d);
         for (int i = 0; i < 8; i++) {
-            super.addAsientos(new AsientoSuiteCama("3" + i,this));
+            super.addAsientos(new AsientoSuiteCama(this));
         }
         for (int i = 0; i < 24; i++) {
-            super.addAsientos(new AsientoSalonCama("4" + i,this));
+            super.addAsientos(new AsientoSalonCama(this));
         }
         for (int i = 0; i < 32; i++) {
-            super.addAsientos(new AsientoSemiCama("5" + i,this));
+            super.addAsientos(new AsientoSemiCama(this));
         }
-    }
-
-    @Override
-    public void reservarAsiento(String letra, int numero) {
-
     }
 }

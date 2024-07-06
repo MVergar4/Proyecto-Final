@@ -7,7 +7,6 @@ public abstract class Bus {
     private LocalTime horario;
     private String destino;
     private ArrayList<Asiento> asientos;
-    public abstract void reservarAsiento(String letra, int numero);
     public Bus(LocalTime L,String d){
         this.horario=L;
         this.destino=d;
@@ -25,5 +24,32 @@ public abstract class Bus {
 
     public void addAsientos(Asiento a) {
         asientos.add(a);
+    }
+
+    private int transformarFila(String letra, int numero) {
+        int contador = -100;
+        switch (letra) {
+            case "A":
+                contador = 0;
+            case "B":
+                contador = 1;
+            case "C":
+                contador = 2;
+            case "D":
+                contador = 3;
+        }
+        return contador + ((numero - 1) * 4);
+    }
+    public boolean revisarAsiento(String l, int n) {
+        Asiento temp = asientos.get(transformarFila(l, n));
+        return temp.estaDisponible();
+    }
+    public void reservarAsiento(String l, int n) throws AsientoOcupadoException {
+        Asiento temp = asientos.get(transformarFila(l, n));
+        if (revisarAsiento(l, n)) {
+            temp.ocuparAsiento();
+        } else {
+            throw new AsientoOcupadoException("Error, este asiento ya está ocupado");
+        }
     }
 }
