@@ -12,8 +12,4 @@ public class Bus1Piso extends Bus {
             asientos.add(new AsientoSemiCama("2" + i));
         }
     }
-
-    @Override
-    public void reservarAsiento(String letra, int numero) {
-    }
 }
