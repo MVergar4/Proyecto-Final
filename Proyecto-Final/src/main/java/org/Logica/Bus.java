@@ -22,10 +22,12 @@ public abstract class Bus {
         Asiento temp = asientos.get(transformarFila(l, n));
         return temp.estaDisponible();
     }
-    public void reservarAsiento(String l, int n) {
+    public void reservarAsiento(String l, int n) throws AsientoOcupadoException {
         Asiento temp = asientos.get(transformarFila(l, n));
         if (revisarAsiento(l, n)) {
             temp.ocuparAsiento();
+        } else {
+            throw new AsientoOcupadoException("Error, este asiento ya está ocupado");
         }
     }
 }
