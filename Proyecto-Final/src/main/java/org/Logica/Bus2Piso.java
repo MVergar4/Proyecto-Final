@@ -2,17 +2,26 @@ package org.Logica;
 
 import java.time.LocalTime;
 
-public class Bus2Piso extends Bus {
+public class Bus2Piso extends Bus { //32,//24,//8
     public Bus2Piso(LocalTime L,String d) {
         super(L,d);
-        for (int i = 0; i < 8; i++) {
-            super.addAsientos(new AsientoSuiteCama(this));
-        }
-        for (int i = 0; i < 24; i++) {
-            super.addAsientos(new AsientoSalonCama(this));
-        }
-        for (int i = 0; i < 32; i++) {
-            super.addAsientos(new AsientoSemiCama(this));
+        for(int j=0;j<4;j++) {
+            String f = "";
+            switch (j){
+                case 0: f="A";
+                case 1: f="B";
+                case 2: f="C";
+                case 3: f="D";
+            }
+            for (int i = 1; i <= 16; i++) {
+                if (i <= 8) {
+                    super.addAsientos(new AsientoSemiCama(this, f, i));
+                } else if (i <= 14) {
+                    super.addAsientos(new AsientoSalonCama(this, f, i));
+                } else {
+                    super.addAsientos(new AsientoSuiteCama(this, f, i));
+                }
+            }
         }
     }
 }
