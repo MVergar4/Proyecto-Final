@@ -9,10 +9,10 @@ public class Recorrido {
     public Recorrido(String ciudad){
         this.ciudadDestino=ciudad;
         this.busesDisponibles=new ArrayList<>();
-        busesDisponibles.add(new Bus2Piso(LocalTime.of(6,10),this));
-        busesDisponibles.add(new Bus1Piso(LocalTime.of(12,15),this));
-        busesDisponibles.add(new Bus1Piso(LocalTime.of(18,40),this));
-        busesDisponibles.add(new Bus2Piso(LocalTime.of(23,20),this));
+        busesDisponibles.add(new Bus2Piso(LocalTime.of(6,10),ciudad));
+        busesDisponibles.add(new Bus1Piso(LocalTime.of(12,15),ciudad));
+        busesDisponibles.add(new Bus1Piso(LocalTime.of(18,40),ciudad));
+        busesDisponibles.add(new Bus2Piso(LocalTime.of(23,20),ciudad));
     }
     public String getCiudadDestino(){
         return ciudadDestino;

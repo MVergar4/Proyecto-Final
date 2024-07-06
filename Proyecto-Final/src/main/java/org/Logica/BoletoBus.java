@@ -11,7 +11,7 @@ public class BoletoBus {
     public BoletoBus(Asiento a){
         this.numAsiento=a.getFila();
         this.boleta=a.getPrecio();
-        this.ciudadDestino=a.getBus().getRecorrido().getCiudadDestino();
+        this.ciudadDestino=a.getBus().getDestino();
         this.horario=a.getBus().getHorario();
     }
 

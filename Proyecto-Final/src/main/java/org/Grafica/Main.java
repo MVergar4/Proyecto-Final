@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         //MiVentana ventana = new MiVentana();
         Recorrido r = new Recorrido("santiago");
-        Bus b = new Bus1Piso(LocalTime.of(12,30),r);
+        Bus b = new Bus1Piso(LocalTime.of(12,30),"Santiago");
         Asiento a = new AsientoSalonCama("01",b);
         BoletoBus boletoBus = new BoletoBus(a);
         System.out.println(boletoBus);

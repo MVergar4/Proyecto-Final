@@ -5,17 +5,25 @@ import java.util.ArrayList;
 
 public abstract class Bus {
     private LocalTime horario;
-    private Recorrido recorrido;
-    protected ArrayList<Asiento> asientos = new ArrayList<>();
+    private String destino;
+    private ArrayList<Asiento> asientos;
     public abstract void reservarAsiento(String letra, int numero);
-    public Bus(LocalTime L,Recorrido r){
+    public Bus(LocalTime L,String d){
         this.horario=L;
-        this.recorrido=r;
+        this.destino=d;
+        this.asientos=new ArrayList<>();
     }
     public LocalTime getHorario(){
         return horario;
     }
-    public Recorrido getRecorrido(){
-        return recorrido;
+    public String getDestino(){
+        return destino;
+    }
+    public ArrayList<Asiento> getAsientos(){
+        return asientos;
+    }
+
+    public void addAsientos(Asiento a) {
+        asientos.add(a);
     }
 }
