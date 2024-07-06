@@ -8,10 +8,11 @@ public class Bus2Piso extends Bus { //32,//24,//8
         for(int j=0;j<4;j++) {
             String f = "";
             switch (j){
-                case 0: f="A";
-                case 1: f="B";
-                case 2: f="C";
-                case 3: f="D";
+                case 0: f="A";break;
+                case 1: f="B";break;
+                case 2: f="C";break;
+                case 3: f="D";break;
+                default: break;
             }
             for (int i = 1; i <= 16; i++) {
                 if (i <= 8) {
