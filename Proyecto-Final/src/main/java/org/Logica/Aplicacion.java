@@ -25,7 +25,15 @@ public class Aplicacion {
             return chillan;
         }
     }
-    public BoletoBus comprarPasaje(){
-        return new BoletoBus(asientoSeleccionado);
+    public void comprarPasaje(){
+        asientoSeleccionado.ocuparAsiento();
+        boletoBuses.add(new BoletoBus(asientoSeleccionado));
+    }
+
+    public void setAsientoSeleccionado(Asiento asientoSeleccionado) {
+        this.asientoSeleccionado = asientoSeleccionado;
+    }
+    public ArrayList<BoletoBus> getBoletoBuses(){
+        return boletoBuses;
     }
 }
