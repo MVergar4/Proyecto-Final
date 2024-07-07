@@ -8,7 +8,7 @@ public abstract class Asiento {
     public Asiento(Bus b,String f,int n) {
         this.disponible = true;
         this.bus=b;
-        this.asiento=f+Integer.toString(n);
+        this.asiento=f+n;
     }
     public boolean estaDisponible() {
         return disponible;
