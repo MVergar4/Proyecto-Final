@@ -9,20 +9,31 @@ public class Aplicacion {
     private Recorrido santiago;
     private Recorrido temuco;
     private Recorrido chillan;
+    private Recorrido concepcion;
     public Aplicacion(){
         boletoBuses=new ArrayList<>();
         santiago=new Recorrido("Santiago");
-        temuco=new Recorrido("temuco");
-        chillan=new Recorrido("chillan");
+        temuco=new Recorrido("Temuco");
+        chillan=new Recorrido("Chillan");
+        concepcion=new Recorrido("Concepcion");
     }
 
     public Recorrido getRecorrido(String s) {
-        if(Objects.equals(s, "santiago")){
-            return santiago;
-        } else if (Objects.equals(s, "temuco")) {
-            return temuco;
-        } else{
-            return chillan;
+        try {
+            if (Objects.equals(s, "Santiago")) {
+                return santiago;
+            } else if (Objects.equals(s, "Temuco")) {
+                return temuco;
+            } else if (Objects.equals(s, "Chillan")) {
+                return chillan;
+            } else if (Objects.equals(s, "Concepcion")) {
+                return concepcion;
+            } else{
+                throw new NoExisteRecorridoException("No existe recorrido hacia: "+s);
+            }
+        } catch (NoExisteRecorridoException e){
+            System.out.println(e.getMessage());
+            return null;
         }
     }
     public void comprarPasaje(){

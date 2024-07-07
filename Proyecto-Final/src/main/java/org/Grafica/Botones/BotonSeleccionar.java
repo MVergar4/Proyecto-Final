@@ -9,7 +9,7 @@ import javax.swing.*;
 
 public class BotonSeleccionar extends JButton {
     private PantallaAutobuses pantallaAutobuses;
-    private Asiento asientoSeleccionado;
+    private Asiento asientoAsociado;
     public BotonSeleccionar(PantallaAutobuses p, Asiento asiento, int x, int y, int ancho, int alto){
         super(asiento.getAsiento());
         pantallaAutobuses=p;
@@ -17,12 +17,12 @@ public class BotonSeleccionar extends JButton {
         p.setLayout(null);
         p.add(this);
         actionListener();
-        this.asientoSeleccionado=asiento;
+        this.asientoAsociado=asiento;
 
     }
     public void actionListener() {
         this.addActionListener(e -> {
-            pantallaAutobuses.getAplicacion().setAsientoSeleccionado(asientoSeleccionado);
+            pantallaAutobuses.getAplicacion().setAsientoSeleccionado(asientoAsociado);
         });
     }
 }

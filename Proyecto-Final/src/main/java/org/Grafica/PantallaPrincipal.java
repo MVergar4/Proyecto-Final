@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 public class PantallaPrincipal extends JPanel {
     private Aplicacion aplicacion;
+    private JTextField destino;
     private PantallaAutobuses concepcion;
     private PantallaAutobuses temuco;
     private PantallaAutobuses chillan;
@@ -20,7 +21,7 @@ public class PantallaPrincipal extends JPanel {
         this.setLayout(null);
         setBackground(new Color(30, 31, 34));
         aplicacion=new Aplicacion();
-
+        destino=new JTextField(20);
         concepcion = new PantallaAutobuses(new Color(163, 216, 241),aplicacion);
         temuco = new PantallaAutobuses(new Color(255, 255, 185),aplicacion);
         chillan = new PantallaAutobuses(new Color(255, 191, 213),aplicacion);
@@ -51,8 +52,6 @@ public class PantallaPrincipal extends JPanel {
     public void paintComponent(Graphics G){
         super.paintComponent(G);
     }
-
-    public PantallaAutobuses getChillan() {
-        return chillan;
-    }
+    public Aplicacion getAplicacion() {return aplicacion;}
+    public PantallaAutobuses getChillan() {return chillan;}
 }
