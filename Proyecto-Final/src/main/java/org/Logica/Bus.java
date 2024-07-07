@@ -4,9 +4,9 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public abstract class Bus {
-    private LocalTime horario;
-    private String destino;
-    private ArrayList<Asiento> asientos;
+    private final LocalTime horario;
+    private final String destino;
+    protected ArrayList<Asiento> asientos;
     public Bus(LocalTime L,String d){
         this.horario=L;
         this.destino=d;
@@ -20,10 +20,6 @@ public abstract class Bus {
     }
     public ArrayList<Asiento> getAsientos(){
         return asientos;
-    }
-
-    public void addAsientos(Asiento a) {
-        asientos.add(a);
     }
 
     private int transformarFila(String letra, int numero) {
