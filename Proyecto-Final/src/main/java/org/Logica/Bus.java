@@ -28,16 +28,16 @@ public class Bus {
         return asientos;
     }
 
-    private int transformarFila(String letra, int numero) {
-        int contador = -100;
+    public int transformarFila(String letra, int numero) {
+        int contador = numero - 1;
         switch (letra) {
-            case "A": contador = 0; break;
-            case "B": contador = 1; break;
-            case "C": contador = 2; break;
-            case "D": contador = 3; break;
+            case "A": contador = numero - 1; break;
+            case "B": contador = contador + (asientos.size()/4); break;
+            case "C": contador = contador + (asientos.size()/4) * 2; break;
+            case "D": contador = contador + (asientos.size()/4) * 3; break;
             default: break;
         }
-        return contador + ((numero - 1) * 4);
+        return contador;
     }
     public boolean revisarAsiento(String l, int n) {
         Asiento temp = asientos.get(transformarFila(l, n));
