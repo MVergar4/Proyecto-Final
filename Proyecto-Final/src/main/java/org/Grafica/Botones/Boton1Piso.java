@@ -13,10 +13,11 @@ public class Boton1Piso extends JRadioButton {
         setBounds(x,y,ancho,alto);
         setBackground(Color.BLUE);
         p.add(this);
+        actionListener();
     }
     public void actionListener() {
         this.addActionListener(e -> {
-            p.setTipoBus("1Piso");
+            p.setTipoBus(32);
         });
     }
 }

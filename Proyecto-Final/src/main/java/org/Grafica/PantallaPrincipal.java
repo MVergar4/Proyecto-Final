@@ -24,7 +24,7 @@ public class PantallaPrincipal extends JPanel {
 
     private String ciudad;
     private String horario;
-    private String tipoBus;
+    private int tipoBus;
 
     private ArrayList<PantallaAutobuses> pantallaAutobuses;
     private PantallaAutobuses autobus;
@@ -82,7 +82,8 @@ public class PantallaPrincipal extends JPanel {
         new BotonSelBus(this,"Confirmar Bus",1300,230,120,30);
         new BotonConfirmar(this,"CONFIRMAR COMPRA",1300,280,180,30);
 
-        new Boton1Piso(this,1300,500,100,40,"1PISO");
+        new Boton1Piso(this,1200,200,80,40,"1PISO");
+        new Boton2Piso(this,1200,250,80,40,"2PISO");
 
         destino=new CampoIngresarCiudad(this,1300,50,100,30);
         asientoSeleccionada=new CampoAsientoSeleccionado(this,1200,30,80,80);
@@ -126,11 +127,15 @@ public class PantallaPrincipal extends JPanel {
         return horario;
     }
 
-    public void setTipoBus(String tipoBus) {
+    public void setTipoBus(int tipoBus) {
         this.tipoBus = tipoBus;
     }
 
-    public String getTipoBus() {
+    public int getTipoBus() {
         return tipoBus;
+    }
+
+    public void setAutobus(PantallaAutobuses autobus) {
+        this.autobus = autobus;
     }
 }

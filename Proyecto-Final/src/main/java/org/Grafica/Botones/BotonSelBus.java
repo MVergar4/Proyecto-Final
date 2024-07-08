@@ -16,12 +16,14 @@ public class BotonSelBus extends Boton {
     public void actionListener() {
         this.addActionListener(e -> {
             ArrayList<PantallaAutobuses> pant=pantallaPrincipal.getPantallaAutobuses();
-
+            pantallaPrincipal.getAutobus().setVisible(false);
             for(int i=0;i<pant.size();i++){
-                System.out.println(pant.get(i).getBusAsociado().getDestino()+pant.get(i).getBusAsociado().getHorario());
                 if(Objects.equals(pant.get(i).getBusAsociado().getDestino(), pantallaPrincipal.getCiudad())){
                     if(Objects.equals(pant.get(i).getBusAsociado().getHorario(), pantallaPrincipal.getHorario())){
-                        pant.get(i).setVisible(true);
+                        if(pant.get(i).getBusAsociado().getAsientos().size()==pantallaPrincipal.getTipoBus()){
+                            pantallaPrincipal.setAutobus(pant.get(i));
+                            pant.get(i).setVisible(true);
+                        }
                     }
                 }
             }

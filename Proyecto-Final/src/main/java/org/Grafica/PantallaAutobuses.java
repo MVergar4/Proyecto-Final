@@ -55,16 +55,16 @@ public class PantallaAutobuses extends JPanel {
                 for (int i = 0; i < busAsociado.getAsientos().size() / 8; i++) {
                     if (j < 2) {
                         asiento = busAsociado.getAsientos().get(i + (8 * j));
-                        add(new CampoAsiento(this,asiento.getAsiento(),30+(j*80),30+(i*80),60,40,asiento));
+                        add(new CampoAsiento(this,asiento.getAsiento(),30+(j*80),30+(i*95),60,60,asiento));
                     } else if(j<4){
                         asiento = busAsociado.getAsientos().get(i + (8 * j));
-                        add(new CampoAsiento(this,asiento.getAsiento(),70+(j*80), 30+(i*80), 60, 40,asiento));
+                        add(new CampoAsiento(this,asiento.getAsiento(),70+(j*80), 30+(i*95), 60, 60,asiento));
                     } else if (j<6) {
                         asiento = busAsociado.getAsientos().get(i + (8 * j));
-                        add(new CampoAsiento(this,asiento.getAsiento(),110+(j*80), 30+(i*80), 60, 40,asiento));
+                        add(new CampoAsiento(this,asiento.getAsiento(),110+(j*80), 30+(i*95), 60, 60,asiento));
                     }else{
                         asiento = busAsociado.getAsientos().get(i + (8 * j));
-                        add(new CampoAsiento(this,asiento.getAsiento(),150+(j*80), 30+(i*80), 60, 40,asiento));
+                        add(new CampoAsiento(this,asiento.getAsiento(),150+(j*80), 30+(i*95), 60, 60,asiento));
                     }
                 }
             }

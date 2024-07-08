@@ -14,13 +14,14 @@ public class Boton2Piso extends JRadioButton {
         setBounds(x,y,ancho,alto);
         setBackground(Color.BLUE);
         p.add(this);
+        actionListener();
     }
     public void actionListener() {
         this.addActionListener(e -> {
             if(Objects.equals(p.getHorario(), "00:00") || Objects.equals(p.getHorario(), "06:00")){
-                p.setTipoBus("2Piso");
+                p.setTipoBus(64);
             }else{
-                p.setTipoBus("1Piso");
+                p.setTipoBus(32);
                 p.BusNoDisponible();
             }
         });
