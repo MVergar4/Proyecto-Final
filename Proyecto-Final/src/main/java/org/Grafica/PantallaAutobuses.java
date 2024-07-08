@@ -1,9 +1,7 @@
 package org.Grafica;
 
 import org.Grafica.Botones.BotonSeleccionar;
-import org.Logica.Aplicacion;
-import org.Logica.Asiento;
-import org.Logica.Bus;
+import org.Logica.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,11 +35,32 @@ public class PantallaAutobuses extends JPanel {
     public void addBotonesSeleccionar() {
         BotonSeleccionar boton;
         Asiento asiento;
-        for (int i = 0; i < busAsociado.getAsientos().size()/4; i++) {
-            for(int j=0;j<4;j++) {
-                asiento = busAsociado.getAsientos().get(i + (8 * j));
-                boton = new BotonSeleccionar(this, asiento, 30 + (j * 65), 30 + (i * 30), 60, 25);
-                botonesSeleccionar.add(boton);
+        System.out.println(busAsociado.getAsientos().size());
+        for(int j=0;j<4;j++) {
+            if(busAsociado instanceof Bus1Piso) {
+                for (int i = 0; i < busAsociado.getAsientos().size() / 4; i++) {
+                    if (j < 2) {
+                        asiento = busAsociado.getAsientos().get(i + (8 * j));
+                        boton = new BotonSeleccionar(this, asiento, 30 + (j * 80), 30 + (i * 30), 60, 40);
+                        botonesSeleccionar.add(boton);
+                    } else {
+                        asiento = busAsociado.getAsientos().get(i + (8 * j));
+                        boton = new BotonSeleccionar(this, asiento, 70 + (j * 80), 30 + (i * 30), 60, 40);
+                        botonesSeleccionar.add(boton);
+                    }
+                }
+            } else {
+                for (int i = 0; i < busAsociado.getAsientos().size() / 4; i++) {
+                    if (j < 2) {
+                        asiento = busAsociado.getAsientos().get(i + (8 * j));
+                        boton = new BotonSeleccionar(this, asiento, 30 + (j * 80), 30 + (i * 30), 60, 40);
+                        botonesSeleccionar.add(boton);
+                    } else {
+                        asiento = busAsociado.getAsientos().get(i + (8 * j));
+                        boton = new BotonSeleccionar(this, asiento, 70 + (j * 80), 30 + (i * 30), 60, 40);
+                        botonesSeleccionar.add(boton);
+                    }
+                }
             }
         }
     }

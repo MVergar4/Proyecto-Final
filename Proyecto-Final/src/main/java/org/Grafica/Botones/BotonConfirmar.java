@@ -14,7 +14,6 @@ public class BotonConfirmar extends Boton {
     @Override
     public void actionListener() {
         this.addActionListener(e -> {
-            pantallaPrincipal.getAplicacion().comprarPasaje();
         });
     }
 }
