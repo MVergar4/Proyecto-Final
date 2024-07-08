@@ -11,26 +11,22 @@ public class Aplicacion {
     private Recorrido chillan;
     private Recorrido concepcion;
     public Aplicacion(){
-        boletoBuses=new ArrayList<>();
-        santiago=new RecorridoSantiago();
-        temuco=new RecorridoTemuco();
-        chillan=new RecorridoChillan();
-        concepcion=new RecorridoConcepcion();
+        boletoBuses = new ArrayList<>();
+        santiago = new RecorridoSantiago();
+        temuco = new RecorridoTemuco();
+        chillan = new RecorridoChillan();
+        concepcion = new RecorridoConcepcion();
     }
 
     public Recorrido getRecorrido(String s) {
         try {
-            if (Objects.equals(s, "Santiago")) {
-                return santiago;
-            } else if (Objects.equals(s, "Temuco")) {
-                return temuco;
-            } else if (Objects.equals(s, "Chillan")) {
-                return chillan;
-            } else if (Objects.equals(s, "Concepcion")) {
-                return concepcion;
-            } else{
-                throw new NoExisteRecorridoException("No existe recorrido hacia: "+s);
-            }
+            return switch (s) {
+                case "Santiago" -> santiago;
+                case "Temuco" -> temuco;
+                case "Chillan" -> chillan;
+                case "Concepcion" -> concepcion;
+                case null, default -> throw new NoExisteRecorridoException("No existe recorrido hacia: " + s);
+            };
         } catch (NoExisteRecorridoException e){
             System.out.println(e.getMessage());
             return null;
