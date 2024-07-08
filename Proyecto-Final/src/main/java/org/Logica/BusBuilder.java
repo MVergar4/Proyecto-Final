@@ -42,7 +42,7 @@ public class BusBuilder implements Builder {
         }
     }
     @Override
-    public void setHorario(LocalTime hora) {
+    public void setHorario(String hora) {
         this.bus.setHorario(hora);
     }
     public Bus getBus() {

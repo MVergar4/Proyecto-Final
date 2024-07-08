@@ -4,16 +4,16 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Bus {
-    private LocalTime horario;
+    private String horario;
     private String destino;
     protected ArrayList<Asiento> asientos;
     public Bus(){
         this.asientos=new ArrayList<>();
     }
-    public void setHorario(LocalTime L) {
+    public void setHorario(String L) {
         horario = L;
     }
-    public LocalTime getHorario(){
+    public String getHorario(){
         return horario;
     }
     public void setDestino(String d) {
