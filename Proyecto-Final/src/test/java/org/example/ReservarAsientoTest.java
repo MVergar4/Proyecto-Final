@@ -5,12 +5,22 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test para comprobar que funciona la reserva de asientos del bus y para probar la excepción para los asientos ocupados
+ */
 class ReservarAsientoTest {
+    /** Director para crear buses */
     private final Director director = new Director();
+    /** Builder para asignar al director */
     private final BusBuilder builder = new BusBuilder();
+    /** Bus de 1 piso de prueba */
     private Bus bus1;
+    /** Bus de 2 pisos de prueba */
     private Bus bus2;
 
+    /**
+     * Crea los buses de prueba
+     */
     @BeforeEach
     void setUp() {
         director.Bus1PisoSimple(builder, "Matutino");
@@ -18,6 +28,10 @@ class ReservarAsientoTest {
         director.Bus2PisosMedio(builder, "Nocturno");
         bus2 = builder.getBus();
     }
+
+    /**
+     * Reserva asientos y luego comprueba que estén realmente reservados
+     */
     @Test
     void reservarAsientos() {
         try {
@@ -41,6 +55,9 @@ class ReservarAsientoTest {
         assertFalse(bus2.revisarAsiento("D", 7));
     }
 
+    /**
+     * Reserva asientos y luego trata de reservar un asiento ocupado, entonces maneja la excepción y comprueba que los otros si hayan resultado bien
+     */
     @Test
     void reservarAsientoOcupado() {
         try {
