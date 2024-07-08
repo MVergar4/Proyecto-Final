@@ -14,10 +14,12 @@ public class BotonSeleccionar extends JButton {
         super(asiento.getAsiento());
         pantallaAutobuses=p;
         setBounds(x,y,ancho,alto);
+        this.asientoAsociado=asiento;
+        setText(asientoAsociado.getAsiento());
         p.setLayout(null);
         p.add(this);
         actionListener();
-        this.asientoAsociado=asiento;
+
 
     }
     public void actionListener() {

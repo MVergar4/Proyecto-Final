@@ -59,6 +59,7 @@ public class PantallaPrincipal extends JPanel {
             add(autobus);
             autobus.setVisible(false);
         }
+        autobus.setVisible(true);
 
         CampoHoraSel c = new CampoHoraSel(this,1200,140,80,30);
         new BotonSelHorario(this,"06:00",1300,100,120,30,c);
