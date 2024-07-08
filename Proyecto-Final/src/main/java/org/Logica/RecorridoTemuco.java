@@ -1,6 +1,12 @@
 package org.Logica;
 
+/**
+ * Subclase de recorrido que representa los buses que van hacia Temuco
+ */
 public class RecorridoTemuco extends Recorrido {
+    /**
+     * Constructor que decide cuántos buses y de qué tipo tendrán los buses que se dirigen a Temuco
+     */
     public RecorridoTemuco() {
         super("Temuco");
 

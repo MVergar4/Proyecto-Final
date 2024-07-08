@@ -1,19 +1,31 @@
 package org.Logica;
 
-import java.time.LocalTime;
-
+/**
+ * Implementación de Builder como dicta el patrón Builder
+ */
 public class BusBuilder implements Builder {
+    /** Bus que se construirá a continuación */
     private Bus bus;
+
+    /**
+     * Constructor por defecto que usa reset para crear una instancia de Bus
+     */
     public BusBuilder() {
         this.reset();
     }
+
+    /**
+     * Reinicia el Bus guardado para crear distintos objetos
+     */
     @Override
     public void reset() {
         this.bus = new Bus();
     }
 
     /**
-     * Crea los asientos del bus, la cantidad de cada una de las categorías de asientos deben ser múltiplos de 4
+     * Crea los asientos del bus,
+     * la cantidad de cada una de las categorías de asientos deben ser múltiplos de 4,
+     * la suma de todos los asientos debe ser 32 para un bus de 1 piso o 64 para uno de 2 pisos
      * @param semi cantidad de AsientoSemiCama
      * @param salon cantidad de AsientoSalonCama
      * @param suite cantidad de AsientoSuiteCama
@@ -41,10 +53,20 @@ public class BusBuilder implements Builder {
             }
         }
     }
+
+    /**
+     * Le asigna la hora a la que parte el bus
+     * @param hora hora en formato de 24 horas
+     */
     @Override
     public void setHorario(String hora) {
         this.bus.setHorario(hora);
     }
+
+    /**
+     * Retorna la referencia al bus que se creó
+     * @return bus
+     */
     public Bus getBus() {
         Bus temp = this.bus;
         this.reset();

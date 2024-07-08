@@ -1,9 +1,10 @@
 package org.Logica;
 
-import java.time.LocalTime;
-
+/**
+ * Interfaz del patrón Builder
+ */
 public interface Builder {
-    public void reset();
-    public void setAsientos(int semi, int salon, int suite);
-    public void setHorario(String hora);
+    void reset();
+    void setAsientos(int semi, int salon, int suite);
+    void setHorario(String hora);
 }

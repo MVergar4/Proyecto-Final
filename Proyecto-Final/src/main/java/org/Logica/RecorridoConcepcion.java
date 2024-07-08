@@ -1,6 +1,12 @@
 package org.Logica;
 
+/**
+ * Subclase de recorrido que representa los buses que van hacia Concepción
+ */
 public class RecorridoConcepcion extends Recorrido {
+    /**
+     * Constructor que decide cuántos buses y de qué tipo tendrán los buses que se dirigen a Concepción
+     */
     public RecorridoConcepcion() {
         super("Concepcion");
 
