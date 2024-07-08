@@ -4,6 +4,6 @@ import java.time.LocalTime;
 
 public interface Builder {
     public void reset();
-    public void setAsientos(int semi, int precio1, int salon, int precio2, int suite, int precio3);
+    public void setAsientos(int semi, int salon, int suite);
     public void setHorario(LocalTime hora);
 }

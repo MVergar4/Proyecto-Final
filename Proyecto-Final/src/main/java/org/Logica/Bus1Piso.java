@@ -16,11 +16,11 @@ public class Bus1Piso extends Bus { //16 ,//12 //4
             }
             for (int i = 1; i <= 8; i++) {
                 if (i <= 4) {
-                    asientos.add(new AsientoSemiCama(f, i, 1000));
+                    asientos.add(new AsientoSemiCama(f, i));
                 } else if (i <= 7) {
-                    asientos.add(new AsientoSalonCama(f, i, 1500));
+                    asientos.add(new AsientoSalonCama(f, i));
                 } else {
-                    asientos.add(new AsientoSuiteCama(f, i, 2000));
+                    asientos.add(new AsientoSuiteCama(f, i));
                 }
             }
         }
