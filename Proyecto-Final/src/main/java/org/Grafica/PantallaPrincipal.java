@@ -11,8 +11,10 @@ import java.util.ArrayList;
 
 public class PantallaPrincipal extends JPanel {
     private Aplicacion aplicacion;
+
     private JTextField destino;
     private JTextField asientoSeleccionada;
+
     private PantallaAutobuses concepcion;
     private PantallaAutobuses temuco;
     private PantallaAutobuses chillan;
@@ -35,7 +37,12 @@ public class PantallaPrincipal extends JPanel {
         this.add(temuco);
         this.add(chillan);
 
-        new BotonConfirmar(this,"CONFIRMAR",1200,200,110,30);
+        new BotonSelHorario(this,"06:00",1300,100,120,30);
+        new BotonSelHorario(this,"12:00",1300,130,120,30);
+        new BotonSelHorario(this,"18:00",1300,160,120,30);
+        new BotonSelHorario(this,"00:00",1300,190,120,30);
+
+        new BotonConfirmar(this,"CONFIRMAR",1300,230,110,30);
         new BotonSelCiudad(this,"Enviar",1405,50,80,30);
         destino=new CampoIngresarCiudad(this,1300,50,100,30);
         asientoSeleccionada=new CampoAsientoSeleccionado(this,1200,30,80,80);

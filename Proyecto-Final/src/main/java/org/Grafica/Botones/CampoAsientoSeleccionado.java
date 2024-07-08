@@ -8,7 +8,7 @@ import java.awt.*;
 public class CampoAsientoSeleccionado extends JTextField {
     public CampoAsientoSeleccionado(PantallaPrincipal p, int x, int y, int ancho, int alto){
         setBounds(x,y,ancho,alto);
-        setBackground(new Color(0,255,0));
+        setBackground(new Color(255,0,0));
         setEditable(false);
         setHorizontalAlignment(0);
         setFont(new Font("Arial",Font.BOLD,30));
