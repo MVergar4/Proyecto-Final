@@ -19,7 +19,7 @@ Diagrama UML de clases:
 
 Diagrama UML de casos de uso:
 
-![Use_Case_Diagram](https://github.com/MVergar4/Proyecto-Final/assets/167582843/dc2963e9-d916-41b3-a634-a1b56a44a7f1)
+![Use_Case_Diagram](https://github.com/MVergar4/Proyecto-Final/assets/167582843/a5abfd41-0fcf-4d64-8921-6d89432fcf70)
 
 Patrones utilizados:
 - Builder:
