@@ -19,12 +19,12 @@ public class PantallaPrincipal extends JPanel {
 
     private JTextField destino;
     private JTextField asientoSeleccionada;
-    private JTextField ciudadSelecc;
 
     private Asiento asientoSeleccionado;
 
     private String ciudad;
     private String horario;
+    private String tipoBus;
 
     private ArrayList<PantallaAutobuses> pantallaAutobuses;
     private PantallaAutobuses autobus;
@@ -43,6 +43,7 @@ public class PantallaPrincipal extends JPanel {
 
         for(int i=0;i<recorridoSantiago.getBusesDisponibles().size();i++) {
             bus=recorridoSantiago.getBusesDisponibles().get(i);
+            bus.setDestino("Santiago");
             autobus = new PantallaAutobuses(new Color(255, 170, 113), bus, this);
             pantallaAutobuses.add(autobus);
             add(autobus);
@@ -50,6 +51,7 @@ public class PantallaPrincipal extends JPanel {
         }
         for(int i=0;i<recorridoTemuco.getBusesDisponibles().size();i++) {
             bus=recorridoTemuco.getBusesDisponibles().get(i);
+            bus.setDestino("Temuco");
             autobus = new PantallaAutobuses(new Color(255, 255, 185), bus, this);
             pantallaAutobuses.add(autobus);
             add(autobus);
@@ -57,6 +59,7 @@ public class PantallaPrincipal extends JPanel {
         }
         for(int i=0;i<recorridoChillan.getBusesDisponibles().size();i++) {
             bus=recorridoChillan.getBusesDisponibles().get(i);
+            bus.setDestino("Chillan");
             autobus = new PantallaAutobuses(new Color(255, 191, 213), bus, this);
             pantallaAutobuses.add(autobus);
             add(autobus);
@@ -64,22 +67,22 @@ public class PantallaPrincipal extends JPanel {
         }
         for(int i=0;i<recorridoConcepcion.getBusesDisponibles().size();i++) {
             bus=recorridoConcepcion.getBusesDisponibles().get(i);
+            bus.setDestino("Concepcion");
             autobus = new PantallaAutobuses(new Color(163, 216, 241), bus, this);
             pantallaAutobuses.add(autobus);
             add(autobus);
             autobus.setVisible(false);
-            if(i==0){
-                autobus.setVisible(true);
-            }
         }
+        //autobus.setVisible(true);
         CampoHoraSel c = new CampoHoraSel(this,1200,140,80,30);
         new BotonSelHorario(this,"06:00",1300,100,120,30,c);
         new BotonSelHorario(this,"12:00",1300,130,120,30,c);
         new BotonSelHorario(this,"18:00",1300,160,120,30,c);
         new BotonSelHorario(this,"00:00",1300,190,120,30,c);
         new BotonSelBus(this,"Confirmar Bus",1300,230,120,30);
-
         new BotonConfirmar(this,"CONFIRMAR COMPRA",1300,280,180,30);
+
+        new Boton1Piso(this,1300,500,100,40,"1PISO");
 
         destino=new CampoIngresarCiudad(this,1300,50,100,30);
         asientoSeleccionada=new CampoAsientoSeleccionado(this,1200,30,80,80);
@@ -106,5 +109,28 @@ public class PantallaPrincipal extends JPanel {
     public Asiento getAsientoSeleccionado(){
         return asientoSeleccionado;
     }
+    public String getCiudad(){
+        return ciudad;
+    }
+    public void destinoNoExiste(){
+        JOptionPane.showMessageDialog(null,"Destino no existe","ERROR",JOptionPane.ERROR_MESSAGE);
+    }
+    public void BusNoDisponible(){
+        JOptionPane.showMessageDialog(null,"Bus de 2 pisos no disponible,asignado automaticamente de 1","ERROR",JOptionPane.ERROR_MESSAGE);
+    }
 
+    public ArrayList<PantallaAutobuses> getPantallaAutobuses() {
+        return pantallaAutobuses;
+    }
+    public String getHorario(){
+        return horario;
+    }
+
+    public void setTipoBus(String tipoBus) {
+        this.tipoBus = tipoBus;
+    }
+
+    public String getTipoBus() {
+        return tipoBus;
+    }
 }

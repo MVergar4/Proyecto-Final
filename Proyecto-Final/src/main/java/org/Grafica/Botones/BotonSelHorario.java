@@ -19,6 +19,7 @@ public class BotonSelHorario extends Boton{
     public void actionListener() {
         this.addActionListener(e -> {
             campoHoraSel.setText(this.getText());
+            pantallaPrincipal.setHorario(this.getText());
         });
     }
 }
