@@ -10,14 +10,13 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class PantallaAutobuses extends JPanel {
-    private Aplicacion aplicacion;
     private Bus busSeleccionado;
     private ArrayList<BotonSeleccionar> botonesSeleccionar;
     private PantallaPrincipal pantallaPrincipal;
-    public PantallaAutobuses(Color color, Aplicacion a,PantallaPrincipal p) {
+    public PantallaAutobuses(Color color, Bus bus,PantallaPrincipal p) {
         super();
         setBackground(color);
-        this.aplicacion=a;
+        this.busSeleccionado=bus;
         this.pantallaPrincipal=p;
     }
     @Override
@@ -29,7 +28,6 @@ public class PantallaAutobuses extends JPanel {
         g.fillRect(0, 0, 10, 800);
         g.fillRect(390, 0, 10, 800);
     }
-    public Aplicacion getAplicacion(){return aplicacion;}
     public Bus getBusSeleccionado(){return busSeleccionado;}
     public void setBusSeleccionado(Bus busSeleccionado) {this.busSeleccionado = busSeleccionado;}
 
