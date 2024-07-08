@@ -23,10 +23,14 @@ class ReservarAsientoTest {
      */
     @BeforeEach
     void setUp() {
-        director.Bus1PisoSimple(builder, "Matutino");
-        bus1 = builder.getBus();
-        director.Bus2PisosMedio(builder, "Nocturno");
-        bus2 = builder.getBus();
+        try {
+            director.Bus1PisoSimple(builder, "Matutino");
+            bus1 = builder.getBus();
+            director.Bus2PisosMedio(builder, "Nocturno");
+            bus2 = builder.getBus();
+        } catch (NoExisteHorarioException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
