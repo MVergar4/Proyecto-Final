@@ -1,7 +1,7 @@
 package org.Grafica;
 
-import org.Logica.Aplicacion;
-import org.Logica.BoletoBus;
+import org.Grafica.Botones.*;
+import org.Logica.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class PantallaPrincipal extends JPanel {
     private Aplicacion aplicacion;
     private JTextField destino;
+    private JTextField asientoSeleccionada;
     private PantallaAutobuses concepcion;
     private PantallaAutobuses temuco;
     private PantallaAutobuses chillan;
@@ -22,17 +23,23 @@ public class PantallaPrincipal extends JPanel {
         setBackground(new Color(30, 31, 34));
         aplicacion=new Aplicacion();
         destino=new JTextField(20);
-        concepcion = new PantallaAutobuses(new Color(163, 216, 241),aplicacion);
-        temuco = new PantallaAutobuses(new Color(255, 255, 185),aplicacion);
-        chillan = new PantallaAutobuses(new Color(255, 191, 213),aplicacion);
-        santiago = new PantallaAutobuses(new Color(255, 170, 113),aplicacion);
 
+        concepcion = new PantallaAutobuses(new Color(163, 216, 241),aplicacion,this);
         concepcion.setBounds(0, 0, 400, 800);
-        this.add(concepcion);
+        temuco = new PantallaAutobuses(new Color(255, 255, 185),aplicacion,this);
         temuco.setBounds(390, 0, 400, 800);
-        this.add(temuco);
+        chillan = new PantallaAutobuses(new Color(255, 191, 213),aplicacion,this);
         chillan.setBounds(780, 0, 400, 800);
+        santiago = new PantallaAutobuses(new Color(255, 170, 113),aplicacion,this);
+        this.add(concepcion);
+        this.add(temuco);
         this.add(chillan);
+
+        new BotonConfirmar(this,"CONFIRMAR",1200,200,110,30);
+        new BotonSelCiudad(this,"Enviar",1405,50,80,30);
+        destino=new CampoIngresarCiudad(this,1300,50,100,30);
+        asientoSeleccionada=new CampoAsientoSeleccionado(this,1200,30,80,80);
+        asientoSeleccionada.setText("C4");
 
         this.addMouseListener(new MouseListener() {
             @Override
@@ -54,4 +61,6 @@ public class PantallaPrincipal extends JPanel {
     }
     public Aplicacion getAplicacion() {return aplicacion;}
     public PantallaAutobuses getChillan() {return chillan;}
+    public JTextField getDestino(){return destino;}
+    public JTextField getAsientoSeleccionada() {return asientoSeleccionada;}
 }

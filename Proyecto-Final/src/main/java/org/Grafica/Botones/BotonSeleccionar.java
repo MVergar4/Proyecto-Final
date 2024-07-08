@@ -22,7 +22,7 @@ public class BotonSeleccionar extends JButton {
     }
     public void actionListener() {
         this.addActionListener(e -> {
-            pantallaAutobuses.getAplicacion().setAsientoSeleccionado(asientoAsociado);
+            pantallaAutobuses.getPantallaPrincipal().getAsientoSeleccionada().setText(asientoAsociado.getAsiento());
         });
     }
 }

@@ -13,10 +13,12 @@ public class PantallaAutobuses extends JPanel {
     private Aplicacion aplicacion;
     private Bus busSeleccionado;
     private ArrayList<BotonSeleccionar> botonesSeleccionar;
-    public PantallaAutobuses(Color color, Aplicacion a) {
+    private PantallaPrincipal pantallaPrincipal;
+    public PantallaAutobuses(Color color, Aplicacion a,PantallaPrincipal p) {
         super();
         setBackground(color);
         this.aplicacion=a;
+        this.pantallaPrincipal=p;
     }
     @Override
     public void paintComponent(Graphics g) {
@@ -42,4 +44,6 @@ public class PantallaAutobuses extends JPanel {
             }
         }
     }
+
+    public PantallaPrincipal getPantallaPrincipal() {return pantallaPrincipal;}
 }
