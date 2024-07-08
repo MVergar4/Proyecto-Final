@@ -12,4 +12,7 @@ public abstract class Recorrido {
     public String getCiudadDestino(){
         return ciudadDestino;
     }
+    public ArrayList<Bus> getBusesDisponibles() {
+        return busesDisponibles;
+    }
 }
