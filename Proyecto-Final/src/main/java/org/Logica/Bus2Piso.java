@@ -16,11 +16,11 @@ public class Bus2Piso extends Bus { //32,//24,//8
             }
             for (int i = 1; i <= 16; i++) {
                 if (i <= 8) {
-                    asientos.add(new AsientoSemiCama(this, f, i));
+                    asientos.add(new AsientoSemiCama(f, i, 1000));
                 } else if (i <= 14) {
-                    asientos.add(new AsientoSalonCama(this, f, i));
+                    asientos.add(new AsientoSalonCama(f, i, 1500));
                 } else {
-                    asientos.add(new AsientoSuiteCama(this, f, i));
+                    asientos.add(new AsientoSuiteCama(f, i, 2000));
                 }
             }
         }

@@ -3,12 +3,10 @@ package org.Logica;
 public abstract class Asiento {
     protected int precio;
     private boolean disponible;
-    private String asiento;
-    private Bus bus;
-    public Asiento(Bus b,String f,int n) {
+    private final String asiento;
+    public Asiento(String f, int n) {
         this.disponible = true;
-        this.bus=b;
-        this.asiento=f+n;
+        this.asiento = f + n;
     }
     public boolean estaDisponible() {
         return disponible;
@@ -21,9 +19,6 @@ public abstract class Asiento {
     }
     public int getPrecio(){
         return precio;
-    }
-    public Bus getBus(){
-        return bus;
     }
 
     @Override

@@ -1,8 +1,8 @@
 package org.Logica;
 
 public class AsientoSemiCama extends Asiento {
-    public AsientoSemiCama(Bus b,String fila,int numFila) {
-        super(b,fila,numFila);
-        super.precio = 1000;
+    public AsientoSemiCama(String fila, int n, int precio) {
+        super(fila, n);
+        super.precio = precio;
     }
 }
