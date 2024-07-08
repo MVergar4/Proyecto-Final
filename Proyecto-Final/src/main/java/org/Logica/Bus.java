@@ -7,9 +7,7 @@ public class Bus {
     private LocalTime horario;
     private String destino;
     protected ArrayList<Asiento> asientos;
-    public Bus(/*LocalTime L,String d*/){
-        /*this.horario=L;
-        this.destino=d;*/
+    public Bus(){
         this.asientos=new ArrayList<>();
     }
     public void setHorario(LocalTime L) {

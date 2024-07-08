@@ -12,10 +12,10 @@ public class Aplicacion {
     private Recorrido concepcion;
     public Aplicacion(){
         boletoBuses=new ArrayList<>();
-        santiago=new Recorrido("Santiago");
-        temuco=new Recorrido("Temuco");
-        chillan=new Recorrido("Chillan");
-        concepcion=new Recorrido("Concepcion");
+        santiago=new RecorridoSantiago();
+        temuco=new RecorridoTemuco();
+        chillan=new RecorridoChillan();
+        concepcion=new RecorridoConcepcion();
     }
 
     public Recorrido getRecorrido(String s) {
