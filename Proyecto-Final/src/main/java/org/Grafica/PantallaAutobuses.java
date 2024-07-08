@@ -1,7 +1,6 @@
 package org.Grafica;
 
 import org.Grafica.Botones.BotonSeleccionar;
-import org.Logica.Aplicacion;
 import org.Logica.Asiento;
 import org.Logica.Bus;
 

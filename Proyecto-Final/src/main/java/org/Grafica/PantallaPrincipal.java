@@ -11,8 +11,6 @@ import java.util.ArrayList;
 
 
 public class PantallaPrincipal extends JPanel {
-    private Aplicacion aplicacion;
-
     private JTextField destino;
     private JTextField asientoSeleccionada;
 
@@ -27,7 +25,6 @@ public class PantallaPrincipal extends JPanel {
         super();
         this.setLayout(null);
         setBackground(new Color(30, 31, 34));
-        aplicacion=new Aplicacion();
         destino=new JTextField(20);
 
 
@@ -94,7 +91,6 @@ public class PantallaPrincipal extends JPanel {
     public void paintComponent(Graphics G){
         super.paintComponent(G);
     }
-    public Aplicacion getAplicacion() {return aplicacion;}
     public JTextField getDestino(){return destino;}
     public JTextField getAsientoSeleccionada() {return asientoSeleccionada;}
     public PantallaAutobuses getAutobus() {return autobus;}
