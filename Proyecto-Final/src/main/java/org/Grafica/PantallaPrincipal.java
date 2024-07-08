@@ -29,46 +29,37 @@ public class PantallaPrincipal extends JPanel {
         setBackground(new Color(30, 31, 34));
         aplicacion=new Aplicacion();
         destino=new JTextField(20);
+        pantallaAutobuses=new ArrayList<>();
 
+        for(int i=0;i<aplicacion.getRecorrido("Santiago").getBusesDisponibles().size();i++) {
+            bus=aplicacion.getRecorrido("Santiago").getBusesDisponibles().get(i);
+            autobus = new PantallaAutobuses(new Color(255, 170, 113), bus, this);
+            pantallaAutobuses.add(autobus);
+            add(autobus);
+            autobus.setVisible(false);
+        }
+        for(int i=0;i<aplicacion.getRecorrido("Temuco").getBusesDisponibles().size();i++) {
+            bus=aplicacion.getRecorrido("Temuco").getBusesDisponibles().get(i);
+            autobus = new PantallaAutobuses(new Color(255, 255, 185), bus, this);
+            pantallaAutobuses.add(autobus);
+            add(autobus);
+            autobus.setVisible(false);
+        }
+        for(int i=0;i<aplicacion.getRecorrido("Chillan").getBusesDisponibles().size();i++) {
+            bus=aplicacion.getRecorrido("Chillan").getBusesDisponibles().get(i);
+            autobus = new PantallaAutobuses(new Color(255, 191, 213), bus, this);
+            pantallaAutobuses.add(autobus);
+            add(autobus);
+            autobus.setVisible(false);
+        }
+        for(int i=0;i<aplicacion.getRecorrido("Concepcion").getBusesDisponibles().size();i++) {
+            bus=aplicacion.getRecorrido("Concepcion").getBusesDisponibles().get(i);
+            autobus = new PantallaAutobuses(new Color(163, 216, 241), bus, this);
+            pantallaAutobuses.add(autobus);
+            add(autobus);
+            autobus.setVisible(false);
+        }
 
-        /*for(int i=0;i<16;i++){
-            if(i<4){
-                aplicacion.getRecorrido("Santiago");
-                autobus=new PantallaAutobuses(new Color(255, 170, 113),bus,this);
-                pantallaAutobuses.add(autobus);
-            } else if (i<8) {
-                aplicacion.getRecorrido("Temuco");
-                new PantallaAutobuses(new Color(255, 255, 185),bus,this);
-                pantallaAutobuses.add(autobus);
-            } else if (i<12) {
-                aplicacion.getRecorrido("Chillan");
-                new PantallaAutobuses(new Color(255, 191, 213),bus,this);
-                pantallaAutobuses.add(autobus);
-            } else{
-                aplicacion.getRecorrido("Concepcion");
-                new PantallaAutobuses(new Color(163, 216, 241),bus,this);
-                pantallaAutobuses.add(autobus);
-            }
-        }*/
-
-        /*
-        new Color(163, 216, 241);
-        new Color(255, 255, 185);
-        new Color(255, 191, 213);
-        new Color(255, 170, 113);
-        concepcion = new PantallaAutobuses(new Color(163, 216, 241),aplicacion,this);
-        concepcion.setBounds(0, 0, 400, 800);
-        temuco = new PantallaAutobuses(new Color(255, 255, 185),aplicacion,this);
-        temuco.setBounds(390, 0, 400, 800);
-        chillan = new PantallaAutobuses(new Color(255, 191, 213),aplicacion,this);
-        chillan.setBounds(780, 0, 400, 800);
-        santiago = new PantallaAutobuses(new Color(255, 170, 113),aplicacion,this);
-        santiago.setBounds(0, 0, 400, 800);
-        this.add(concepcion);
-        this.add(temuco);
-        this.add(chillan);
-        this.add(santiago);
-        */
         CampoHoraSel c = new CampoHoraSel(this,1200,140,80,30);
         new BotonSelHorario(this,"06:00",1300,100,120,30,c);
         new BotonSelHorario(this,"12:00",1300,130,120,30,c);
@@ -100,4 +91,5 @@ public class PantallaPrincipal extends JPanel {
     public PantallaAutobuses getAutobus() {return autobus;}
     public void setHorario(String horario) {this.horario = horario;}
     public void setCiudad(String ciudad) {this.ciudad = ciudad;}
+
 }
