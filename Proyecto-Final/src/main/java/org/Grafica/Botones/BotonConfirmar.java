@@ -14,6 +14,10 @@ public class BotonConfirmar extends Boton {
     @Override
     public void actionListener() {
         this.addActionListener(e -> {
+            pantallaPrincipal.getAsientoSeleccionado().ocuparAsiento();
+            for(int i=0;i<pantallaPrincipal.getAutobus().getCampoAsientos().size();i++) {
+                pantallaPrincipal.getAutobus().getCampoAsientos().get(i).rePintar();
+            }
         });
     }
 }

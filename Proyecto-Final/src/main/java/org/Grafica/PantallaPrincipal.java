@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 
 public class PantallaPrincipal extends JPanel {
-    //private Aplicacion aplicacion;
 
     private Recorrido recorridoChillan;
     private Recorrido recorridoConcepcion;
@@ -20,6 +19,9 @@ public class PantallaPrincipal extends JPanel {
 
     private JTextField destino;
     private JTextField asientoSeleccionada;
+    private JTextField ciudadSelecc;
+
+    private Asiento asientoSeleccionado;
 
     private String ciudad;
     private String horario;
@@ -32,7 +34,6 @@ public class PantallaPrincipal extends JPanel {
         super();
         this.setLayout(null);
         setBackground(new Color(30, 31, 34));
-        //aplicacion=new Aplicacion();
         recorridoChillan = new RecorridoChillan();
         recorridoConcepcion = new RecorridoConcepcion();
         recorridoSantiago = new RecorridoSantiago();
@@ -67,19 +68,22 @@ public class PantallaPrincipal extends JPanel {
             pantallaAutobuses.add(autobus);
             add(autobus);
             autobus.setVisible(false);
+            if(i==0){
+                autobus.setVisible(true);
+            }
         }
-        autobus.setVisible(true);
-
         CampoHoraSel c = new CampoHoraSel(this,1200,140,80,30);
         new BotonSelHorario(this,"06:00",1300,100,120,30,c);
         new BotonSelHorario(this,"12:00",1300,130,120,30,c);
         new BotonSelHorario(this,"18:00",1300,160,120,30,c);
         new BotonSelHorario(this,"00:00",1300,190,120,30,c);
+        new BotonSelBus(this,"Confirmar Bus",1300,230,120,30);
 
-        new BotonConfirmar(this,"CONFIRMAR",1300,230,110,30);
-        new BotonSelCiudad(this,"Enviar",1405,50,80,30);
+        new BotonConfirmar(this,"CONFIRMAR COMPRA",1300,280,180,30);
+
         destino=new CampoIngresarCiudad(this,1300,50,100,30);
         asientoSeleccionada=new CampoAsientoSeleccionado(this,1200,30,80,80);
+        new BotonSelCiudad(this,"Enviar",1405,50,80,30);
 
         this.addMouseListener(new MouseListener() {
             @Override
@@ -99,5 +103,8 @@ public class PantallaPrincipal extends JPanel {
     public PantallaAutobuses getAutobus() {return autobus;}
     public void setHorario(String horario) {this.horario = horario;}
     public void setCiudad(String ciudad) {this.ciudad = ciudad;}
+    public Asiento getAsientoSeleccionado(){
+        return asientoSeleccionado;
+    }
 
 }

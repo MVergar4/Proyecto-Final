@@ -1,6 +1,6 @@
 package org.Grafica;
 
-import org.Grafica.Botones.BotonSeleccionar;
+import org.Grafica.Botones.CampoAsiento;
 import org.Logica.*;
 
 import javax.swing.*;
@@ -9,16 +9,18 @@ import java.util.ArrayList;
 
 public class PantallaAutobuses extends JPanel {
     private Bus busAsociado;
-    private ArrayList<BotonSeleccionar> botonesSeleccionar;
     private PantallaPrincipal pantallaPrincipal;
+    private ArrayList<CampoAsiento> campoAsientos;
     public PantallaAutobuses(Color color, Bus bus,PantallaPrincipal p) {
         super();
+        campoAsientos=new ArrayList<>();
+        p.setLayout(null);
         setBounds(200,0,400,800);
         setBackground(color);
-        botonesSeleccionar=new ArrayList<>();
         this.busAsociado=bus;
         this.pantallaPrincipal=p;
         addBotonesSeleccionar();
+        setVisible(false);
     }
     @Override
     public void paintComponent(Graphics g) {
@@ -33,32 +35,28 @@ public class PantallaAutobuses extends JPanel {
     public void setBusSeleccionado(Bus busSeleccionado) {this.busAsociado = busSeleccionado;}
 
     public void addBotonesSeleccionar() {
-        BotonSeleccionar boton;
         Asiento asiento;
-        System.out.println(busAsociado.getAsientos().size());
-        for(int j=0;j<4;j++) {
-            if(busAsociado instanceof Bus1Piso) {
+        if(busAsociado.getAsientos().size()==32) {
+            for (int j = 0; j < 4; j++) {
                 for (int i = 0; i < busAsociado.getAsientos().size() / 4; i++) {
                     if (j < 2) {
                         asiento = busAsociado.getAsientos().get(i + (8 * j));
-                        boton = new BotonSeleccionar(this, asiento, 30 + (j * 80), 30 + (i * 30), 60, 40);
-                        botonesSeleccionar.add(boton);
+                        add(new CampoAsiento(this,asiento.getAsiento(),30+(j*80),30+(i*95),60,60,asiento));
                     } else {
                         asiento = busAsociado.getAsientos().get(i + (8 * j));
-                        boton = new BotonSeleccionar(this, asiento, 70 + (j * 80), 30 + (i * 30), 60, 40);
-                        botonesSeleccionar.add(boton);
+                        add(new CampoAsiento(this,asiento.getAsiento(),70+(j*80),30+(i*95),60,60,asiento));
                     }
                 }
-            } else {
+            }
+        } else{
+            for (int j = 0; j < 4; j++) {
                 for (int i = 0; i < busAsociado.getAsientos().size() / 4; i++) {
                     if (j < 2) {
-                        asiento = busAsociado.getAsientos().get(i + (8 * j));
-                        boton = new BotonSeleccionar(this, asiento, 30 + (j * 80), 30 + (i * 30), 60, 40);
-                        botonesSeleccionar.add(boton);
+                        asiento = busAsociado.getAsientos().get(i + (16 * j));
+                        add(new CampoAsiento(this,asiento.getAsiento(),30+(j*80),30+(i*80),60,40,asiento));
                     } else {
-                        asiento = busAsociado.getAsientos().get(i + (8 * j));
-                        boton = new BotonSeleccionar(this, asiento, 70 + (j * 80), 30 + (i * 30), 60, 40);
-                        botonesSeleccionar.add(boton);
+                        asiento = busAsociado.getAsientos().get(i + (16 * j));
+                        add(new CampoAsiento(this,asiento.getAsiento(),70+(j*80), 30+(i*80), 60, 40,asiento));
                     }
                 }
             }
@@ -66,4 +64,8 @@ public class PantallaAutobuses extends JPanel {
     }
 
     public PantallaPrincipal getPantallaPrincipal() {return pantallaPrincipal;}
+
+    public ArrayList<CampoAsiento> getCampoAsientos() {
+        return campoAsientos;
+    }
 }
