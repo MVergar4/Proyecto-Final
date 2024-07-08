@@ -45,10 +45,6 @@ public class BusBuilder implements Builder {
         }
     }
     @Override
-    public void setDestino(String cuidad) {
-        this.bus.setDestino(cuidad);
-    }
-    @Override
     public void setHorario(LocalTime hora) {
         this.bus.setHorario(hora);
     }
