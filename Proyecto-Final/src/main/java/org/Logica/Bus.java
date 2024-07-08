@@ -3,17 +3,23 @@ package org.Logica;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-public abstract class Bus {
-    private final LocalTime horario;
-    private final String destino;
+public class Bus {
+    private LocalTime horario;
+    private String destino;
     protected ArrayList<Asiento> asientos;
-    public Bus(LocalTime L,String d){
-        this.horario=L;
-        this.destino=d;
+    public Bus(/*LocalTime L,String d*/){
+        /*this.horario=L;
+        this.destino=d;*/
         this.asientos=new ArrayList<>();
+    }
+    public void setHorario(LocalTime L) {
+        horario = L;
     }
     public LocalTime getHorario(){
         return horario;
+    }
+    public void setDestino(String d) {
+        destino = d;
     }
     public String getDestino(){
         return destino;

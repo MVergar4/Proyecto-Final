@@ -4,7 +4,7 @@ import java.time.LocalTime;
 
 public class Bus1Piso extends Bus { //16 ,//12 //4
     public Bus1Piso(LocalTime L,String d) {
-        super(L,d);
+        super();
         for(int j=0;j<4;j++) {
             String f = "";
             switch (j){
