@@ -126,16 +126,11 @@ public class PantallaPrincipal extends JPanel {
     public String getHorario(){
         return horario;
     }
-
     public void setTipoBus(int tipoBus) {
         this.tipoBus = tipoBus;
     }
-
     public int getTipoBus() {
         return tipoBus;
     }
-
-    public void setAutobus(PantallaAutobuses autobus) {
-        this.autobus = autobus;
-    }
+    public void setAutobus(PantallaAutobuses autobus) {this.autobus = autobus;}
 }
