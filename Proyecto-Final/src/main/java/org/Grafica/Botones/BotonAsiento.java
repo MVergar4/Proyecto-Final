@@ -24,7 +24,13 @@ public class BotonAsiento extends JButton {
     }
     public void actionListener(){
         this.addActionListener(e -> {
+            if(pantallaAutobuses.getAsientoElegido()!=null){
+                if(pantallaAutobuses.getAsientoElegido().getBackground()==Color.YELLOW){
+                    pantallaAutobuses.getAsientoElegido().setBackground(new Color(100,255,100));
+                }
+            }
             pantallaAutobuses.setAsientoElegido(this);
+            setBackground(Color.YELLOW);
             pantallaAutobuses.getPantallaPrincipal().getAsientoSeleccionada().setText(asientoAsociado.getAsiento());
             pantallaAutobuses.getPantallaPrincipal().getaCaracteristicas().setText(tipoAsiento+"\nprecio: "+asientoAsociado.getPrecio());
         });
