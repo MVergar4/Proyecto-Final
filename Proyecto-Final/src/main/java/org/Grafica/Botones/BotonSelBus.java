@@ -6,12 +6,19 @@ import org.Grafica.PantallaPrincipal;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Subclase boton que selecciona el bus
+ */
 
 public class BotonSelBus extends Boton {
     public BotonSelBus(PantallaPrincipal p, String nom,int x,int y,int ancho,int alto){
         super(p,nom,x,y,ancho,alto);
         actionListener();
     }
+
+    /**
+     * Selecciona el bus indicado, se preocupa ademas de que se se haya seleccionado horario,destino y tipo de bus
+     */
     @Override
     public void actionListener() {
         this.addActionListener(e -> {

@@ -9,13 +9,27 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class PantallaAutobuses extends JPanel {
-    private Bus busAsociado;
-    private PantallaPrincipal pantallaPrincipal;
-    private ArrayList<BotonAsiento> botonAsientos;
+/**
+ * Cada de estas clases representaria un bus de forma grafica
+ */
 
+public class PantallaAutobuses extends JPanel {
+    /** Bus asociado */
+    private Bus busAsociado;
+    /** Referencia a la pantalla principal*/
+    private PantallaPrincipal pantallaPrincipal;
+    /** Lista de los asientos */
+    private ArrayList<BotonAsiento> botonAsientos;
+    /** Asiento seleccionado */
     private BotonAsiento asientoElegido;
 
+    /**
+     * Constructor que coloca los limites dependiendo si es un bus de 1 piso o 2, y guarda datos importantes como la
+     * referencia a la pantalla principal, el bus asociado y el color dependiendo del recorrido
+     * @param color Color del bus
+     * @param bus Bus asociado a nivel logico
+     * @param p Referencia de la pantalla principal
+     */
     public PantallaAutobuses(Color color, Bus bus,PantallaPrincipal p) {
         super();
         botonAsientos=new ArrayList<>();
@@ -31,6 +45,11 @@ public class PantallaAutobuses extends JPanel {
         addBotonesSeleccionar();
         setVisible(false);
     }
+
+    /**
+     * Crea recuadros que encierran a cada bus, solamente estetico
+     * @param g Para incializar la parte grafica
+     */
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -47,6 +66,11 @@ public class PantallaAutobuses extends JPanel {
         }
     }
 
+    /**
+     * Va creando los BotonesAsiento (informacion detallado en la clase BotonAsiento)
+     * y cada uno lo asocia a un asiento desde la logica y los situa en la pantalla
+     * dependiendo si es de 1 piso o 2
+     */
     public void addBotonesSeleccionar() {
         Asiento asiento;
         if(busAsociado.getAsientos().size()==32) {
@@ -81,9 +105,27 @@ public class PantallaAutobuses extends JPanel {
             }
         }
     }
-    public ArrayList<BotonAsiento> getBotonAsientos(){return botonAsientos;}
+    /**
+     * Getter del bus asociado
+     * @return Un objeto clase Bus
+     */
     public Bus getBusAsociado() {return busAsociado;}
+
+    /**
+     * setter del asiento elegido para comprar o ver detalles
+     * @param a BotonAsiento clickeado
+     */
     public void setAsientoElegido(BotonAsiento a){this.asientoElegido=a;}
+
+    /**
+     * Getter del asientoElegido
+     * @return BotonAsiento
+     */
     public BotonAsiento getAsientoElegido() {return asientoElegido;}
+
+    /**
+     * Getter de la pantalla principal
+     * @return La pantalla principal
+     */
     public PantallaPrincipal getPantallaPrincipal() {return pantallaPrincipal;}
 }

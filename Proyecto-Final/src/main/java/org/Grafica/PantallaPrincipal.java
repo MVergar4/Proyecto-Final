@@ -12,22 +12,31 @@ import java.util.ArrayList;
 
 public class PantallaPrincipal extends JPanel {
 
+    /** Recorridos disponibles cada uno con una lista de buses*/
     private Recorrido recorridoChillan;
     private Recorrido recorridoConcepcion;
     private Recorrido recorridoSantiago;
     private Recorrido recorridoTemuco;
 
+    /** Cuadros de textos que permiten señalar el destino, asiento seleccionado y las caracteristicas de este*/
     private JTextField destino;
     private JTextField asientoSeleccionada;
     private JTextArea aCaracteristicas;
 
+    /** Sirven a la hora de elegir un bus*/
     private String ciudad;
     private String horario;
     private int tipoBus;
 
+    /** Guarda todos los autobuses graficos*/
     private ArrayList<PantallaAutobuses> pantallaAutobuses;
+    /** Sirve para crear pantalla autobuses, y para señalar cual se esta viendo en tiempo real*/
     private PantallaAutobuses autobus;
 
+    /**
+     * Coloca el color, Crea los recorridos de buses, los pantalla buses cada uno con un Bus logico asociado
+     * Crea los JTextField, y los botones.
+     */
     public PantallaPrincipal(){
         super();
         this.setLayout(null);
@@ -99,6 +108,7 @@ public class PantallaPrincipal extends JPanel {
             public void mouseExited(MouseEvent e) {}
         });
     }
+    /** Metodo paint component que agrega texto para facilitarle el usuario el uso de la interfaz*/
     @Override
     public void paintComponent(Graphics G){
         super.paintComponent(G);
@@ -106,45 +116,46 @@ public class PantallaPrincipal extends JPanel {
         G.setColor(Color.WHITE);
         G.drawString("Escriba ciudad ", 1300, 40);
     }
+    /** Getters de las variables privadas*/
     public JTextField getDestino(){return destino;}
     public JTextField getAsientoSeleccionada() {return asientoSeleccionada;}
-
-    public void setHorario(String horario) {this.horario = horario;}
-    public void setCiudad(String ciudad) {this.ciudad = ciudad;}
-    public String getCiudad(){
-        return ciudad;
-    }
-    public ArrayList<PantallaAutobuses> getPantallaAutobuses() {
-        return pantallaAutobuses;
-    }
-    public String getHorario(){
-        return horario;
-    }
-    public void setTipoBus(int tipoBus) {
-        this.tipoBus = tipoBus;
-    }
-    public int getTipoBus() {
-        return tipoBus;
-    }
-    public void setAutobus(PantallaAutobuses autobus) {this.autobus = autobus;}
+    public String getCiudad(){return ciudad;}
+    public ArrayList<PantallaAutobuses> getPantallaAutobuses() {return pantallaAutobuses;}
+    public String getHorario(){return horario;}
     public PantallaAutobuses getAutobus() {return autobus;}
     public JTextArea getaCaracteristicas() {return aCaracteristicas;}
+    /** Setters de las variables privadas*/
+    public void setHorario(String horario) {this.horario = horario;}
+    public void setCiudad(String ciudad) {this.ciudad = ciudad;}
+    public void setTipoBus(int tipoBus) {this.tipoBus = tipoBus;}
+    public int getTipoBus() {return tipoBus;}
+    public void setAutobus(PantallaAutobuses autobus) {this.autobus = autobus;}
 
+    /** Metodo que muestra cuando se agrega un destino inexistente*/
     public void destinoNoExiste(){
         JOptionPane.showMessageDialog(null,"Destino no existe","ERROR",JOptionPane.ERROR_MESSAGE);
     }
+    /** Metodo que muestra cuando no hay disponible un bus de 2 pisos en cierto recorrido y horario*/
     public void BusNoDisponible(){
         JOptionPane.showMessageDialog(null,"Bus de 2 pisos no disponible,asignado automaticamente de 1","ERROR",JOptionPane.ERROR_MESSAGE);
     }
+    /** Muestra cuando no se ha envieado un destino*/
     public void noDestino(){
         JOptionPane.showMessageDialog(null,"Falta seleccionar un destino","ERROR",JOptionPane.ERROR_MESSAGE);
     }
+    /** Muestra cuando no se ha elegido el tipo de bus*/
     public void noTipoBus(){
         JOptionPane.showMessageDialog(null,"Falta seleccionar el tipo de bus","ERROR",JOptionPane.ERROR_MESSAGE);
     }
+    /** Muestra cuando no se ha elegido el horario*/
     public void noHorario(){
         JOptionPane.showMessageDialog(null,"Falta seleccionar un horario","ERROR",JOptionPane.ERROR_MESSAGE);
     }
+
+    /**
+     * Se muestra cuando se intenta comprar un asiento ya ocupado
+     * @param s String con el error
+     */
     public void noAsiento(String s){
         JOptionPane.showMessageDialog(null,s,"ERROR",JOptionPane.ERROR_MESSAGE);
     }
