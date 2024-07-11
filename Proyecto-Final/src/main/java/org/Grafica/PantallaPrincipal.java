@@ -110,13 +110,6 @@ public class PantallaPrincipal extends JPanel {
     public String getCiudad(){
         return ciudad;
     }
-    public void destinoNoExiste(){
-        JOptionPane.showMessageDialog(null,"Destino no existe","ERROR",JOptionPane.ERROR_MESSAGE);
-    }
-    public void BusNoDisponible(){
-        JOptionPane.showMessageDialog(null,"Bus de 2 pisos no disponible,asignado automaticamente de 1","ERROR",JOptionPane.ERROR_MESSAGE);
-    }
-
     public ArrayList<PantallaAutobuses> getPantallaAutobuses() {
         return pantallaAutobuses;
     }
@@ -131,6 +124,21 @@ public class PantallaPrincipal extends JPanel {
     }
     public void setAutobus(PantallaAutobuses autobus) {this.autobus = autobus;}
     public PantallaAutobuses getAutobus() {return autobus;}
-
     public JTextArea getaCaracteristicas() {return aCaracteristicas;}
+
+    public void destinoNoExiste(){
+        JOptionPane.showMessageDialog(null,"Destino no existe","ERROR",JOptionPane.ERROR_MESSAGE);
+    }
+    public void BusNoDisponible(){
+        JOptionPane.showMessageDialog(null,"Bus de 2 pisos no disponible,asignado automaticamente de 1","ERROR",JOptionPane.ERROR_MESSAGE);
+    }
+    public void noDestino(){
+        JOptionPane.showMessageDialog(null,"Falta seleccionar un destino","ERROR",JOptionPane.ERROR_MESSAGE);
+    }
+    public void noTipoBus(){
+        JOptionPane.showMessageDialog(null,"Falta seleccionar el tipo de bus","ERROR",JOptionPane.ERROR_MESSAGE);
+    }
+    public void noHorario(){
+        JOptionPane.showMessageDialog(null,"Falta seleccionar un horario","ERROR",JOptionPane.ERROR_MESSAGE);
+    }
 }
