@@ -1,22 +1,35 @@
 package org.Grafica;
 
-import org.Grafica.Botones.BotonSeleccionar;
+
 import org.Logica.Asiento;
 import org.Logica.Bus;
+import org.Grafica.Botones.BotonAsiento;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
 public class PantallaAutobuses extends JPanel {
-    private Bus busSeleccionado;
-    private ArrayList<BotonSeleccionar> botonesSeleccionar;
+    private Bus busAsociado;
     private PantallaPrincipal pantallaPrincipal;
+    private ArrayList<BotonAsiento> botonAsientos;
+
+    private BotonAsiento asientoElegido;
+
     public PantallaAutobuses(Color color, Bus bus,PantallaPrincipal p) {
         super();
+        botonAsientos=new ArrayList<>();
+        p.setLayout(null);
+        if(bus.getAsientos().size()==64){
+            setBounds(200,0,800,800);
+        } else {
+            setBounds(200,0,400,800);
+        }
         setBackground(color);
-        this.busSeleccionado=bus;
+        this.busAsociado=bus;
         this.pantallaPrincipal=p;
+        addBotonesSeleccionar();
+        setVisible(false);
     }
     @Override
     public void paintComponent(Graphics g) {
@@ -26,21 +39,51 @@ public class PantallaAutobuses extends JPanel {
         g.fillRect(0, 790, 400, 10);
         g.fillRect(0, 0, 10, 800);
         g.fillRect(390, 0, 10, 800);
-    }
-    public Bus getBusSeleccionado(){return busSeleccionado;}
-    public void setBusSeleccionado(Bus busSeleccionado) {this.busSeleccionado = busSeleccionado;}
 
-    public void addBotonesSeleccionar() {
-        BotonSeleccionar boton;
-        Asiento asiento;
-        for(int j=0;j<4;j++) {
-            for (int i = 0; i < busSeleccionado.getAsientos().size()/4; i++) {
-                asiento=busSeleccionado.getAsientos().get(i+(8*j));
-                boton=new BotonSeleccionar(this,asiento,30+i,30+j,20,20);
-                botonesSeleccionar.add(boton);
-            }
+        if(busAsociado.getAsientos().size()==64){
+            g.fillRect(400,0,400,10);
+            g.fillRect(400,790,400,10);
+            g.fillRect(790,0,10,800);
         }
     }
 
+    public void addBotonesSeleccionar() {
+        Asiento asiento;
+        if(busAsociado.getAsientos().size()==32) {
+            for (int j = 0; j < 4; j++) {
+                for (int i = 0; i < busAsociado.getAsientos().size() / 4; i++) {
+                    if (j < 2) {
+                        asiento = busAsociado.getAsientos().get(i + (8 * j));
+                        new BotonAsiento(this,asiento,30+(j*80),30+(i*95),60,60);
+                    } else {
+                        asiento = busAsociado.getAsientos().get(i + (8 * j));
+                        new BotonAsiento(this,asiento,70+(j*80),30+(i*95),60,60);
+                    }
+                }
+            }
+        } else{
+            for (int j = 0; j < 8; j++) {
+                for (int i = 0; i < busAsociado.getAsientos().size() / 8; i++) {
+                    if (j < 2) {
+                        asiento = busAsociado.getAsientos().get(i + (16 * j));
+                        new BotonAsiento(this,asiento,30+(j*80),30+(i*95),60,60);
+                    } else if(j<4){
+                        asiento = busAsociado.getAsientos().get(i + (16 * j));
+                        new BotonAsiento(this,asiento,70+(j*80), 30+(i*95), 60, 60);
+                    } else if (j<6) {
+                        asiento = busAsociado.getAsientos().get(i + (16*j)-56);
+                        new BotonAsiento(this,asiento,110+(j*80), 30+(i*95), 60, 60);
+                    }else{
+                        asiento = busAsociado.getAsientos().get(i + (16 * j)-56);
+                        new BotonAsiento(this,asiento,150+(j*80), 30+(i*95), 60, 60);
+                    }
+                }
+            }
+        }
+    }
+    public ArrayList<BotonAsiento> getBotonAsientos(){return botonAsientos;}
+    public Bus getBusAsociado() {return busAsociado;}
+    public void setAsientoElegido(BotonAsiento a){this.asientoElegido=a;}
+    public BotonAsiento getAsientoElegido() {return asientoElegido;}
     public PantallaPrincipal getPantallaPrincipal() {return pantallaPrincipal;}
 }

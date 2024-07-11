@@ -14,8 +14,8 @@ public class RecorridoSantiago extends Recorrido {
         BusBuilder b = new BusBuilder();
 
         try {
-            d.Bus1PisoMedio(b, "Matutino");
-            busesDisponibles.add(b.getBus());
+            //d.Bus1PisoMedio(b, "Matutino");
+            //busesDisponibles.add(b.getBus());
             d.Bus1PisoDeluxe(b, "Matutino");
             busesDisponibles.add(b.getBus());
             d.Bus1PisoMedio(b, "Mediodia");
@@ -24,15 +24,15 @@ public class RecorridoSantiago extends Recorrido {
             busesDisponibles.add(b.getBus());
             d.Bus1PisoMedio(b, "Nocturno");
             busesDisponibles.add(b.getBus());
-            d.Bus1PisoDeluxe(b, "Nocturno");
-            busesDisponibles.add(b.getBus());
+            //d.Bus1PisoDeluxe(b, "Nocturno");
+            //busesDisponibles.add(b.getBus());
 
             d.Bus2PisosMedio(b, "Matutino");
             busesDisponibles.add(b.getBus());
-            d.Bus2PisosDeluxe(b, "Matutino");
-            busesDisponibles.add(b.getBus());
-            d.Bus2PisosMedio(b, "Nocturno");
-            busesDisponibles.add(b.getBus());
+            //d.Bus2PisosDeluxe(b, "Matutino");
+            //busesDisponibles.add(b.getBus());
+            //d.Bus2PisosMedio(b, "Nocturno");
+            //busesDisponibles.add(b.getBus());
             d.Bus2PisosDeluxe(b, "Nocturno");
             busesDisponibles.add(b.getBus());
         } catch (NoExisteHorarioException e) {
