@@ -18,9 +18,10 @@ public class PantallaAutobuses extends JPanel {
         super();
         botonAsientos=new ArrayList<>();
         p.setLayout(null);
-        setBounds(200,0,400,800);
         if(bus.getAsientos().size()==64){
             setBounds(200,0,800,800);
+        } else {
+            setBounds(200,0,400,800);
         }
         setBackground(color);
         this.busAsociado=bus;
@@ -36,6 +37,12 @@ public class PantallaAutobuses extends JPanel {
         g.fillRect(0, 790, 400, 10);
         g.fillRect(0, 0, 10, 800);
         g.fillRect(390, 0, 10, 800);
+
+        if(busAsociado.getAsientos().size()==64){
+            g.fillRect(400,0,400,10);
+            g.fillRect(400,790,400,10);
+            g.fillRect(790,0,10,800);
+        }
     }
 
     public void addBotonesSeleccionar() {
@@ -56,16 +63,16 @@ public class PantallaAutobuses extends JPanel {
             for (int j = 0; j < 8; j++) {
                 for (int i = 0; i < busAsociado.getAsientos().size() / 8; i++) {
                     if (j < 2) {
-                        asiento = busAsociado.getAsientos().get(i + (8 * j));
+                        asiento = busAsociado.getAsientos().get(i + (16 * j));
                         new BotonAsiento(this,asiento,30+(j*80),30+(i*95),60,60);
                     } else if(j<4){
-                        asiento = busAsociado.getAsientos().get(i + (8 * j));
+                        asiento = busAsociado.getAsientos().get(i + (16 * j));
                         new BotonAsiento(this,asiento,70+(j*80), 30+(i*95), 60, 60);
                     } else if (j<6) {
-                        asiento = busAsociado.getAsientos().get(i + (8 * j));
+                        asiento = busAsociado.getAsientos().get(i + (16*j)-56);
                         new BotonAsiento(this,asiento,110+(j*80), 30+(i*95), 60, 60);
                     }else{
-                        asiento = busAsociado.getAsientos().get(i + (8 * j));
+                        asiento = busAsociado.getAsientos().get(i + (16 * j)-56);
                         new BotonAsiento(this,asiento,150+(j*80), 30+(i*95), 60, 60);
                     }
                 }
@@ -76,4 +83,5 @@ public class PantallaAutobuses extends JPanel {
     public Bus getBusAsociado() {return busAsociado;}
     public void setAsientoElegido(BotonAsiento a){this.asientoElegido=a;}
     public BotonAsiento getAsientoElegido() {return asientoElegido;}
+    public PantallaPrincipal getPantallaPrincipal() {return pantallaPrincipal;}
 }

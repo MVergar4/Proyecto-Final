@@ -19,8 +19,7 @@ public class PantallaPrincipal extends JPanel {
 
     private JTextField destino;
     private JTextField asientoSeleccionada;
-
-    private Asiento asientoSeleccionado;
+    private JTextArea aCaracteristicas;
 
     private String ciudad;
     private String horario;
@@ -28,7 +27,6 @@ public class PantallaPrincipal extends JPanel {
 
     private ArrayList<PantallaAutobuses> pantallaAutobuses;
     private PantallaAutobuses autobus;
-    private Bus bus;
 
     public PantallaPrincipal(){
         super();
@@ -41,6 +39,7 @@ public class PantallaPrincipal extends JPanel {
         destino=new JTextField(20);
         pantallaAutobuses=new ArrayList<>();
 
+        Bus bus;
         for(int i=0;i<recorridoSantiago.getBusesDisponibles().size();i++) {
             bus=recorridoSantiago.getBusesDisponibles().get(i);
             bus.setDestino("Santiago");
@@ -73,20 +72,21 @@ public class PantallaPrincipal extends JPanel {
             add(autobus);
             autobus.setVisible(false);
         }
-        //autobus.setVisible(true);
-        CampoHoraSel c = new CampoHoraSel(this,1200,140,80,30);
+
+        aCaracteristicas=new CampoCaracteristicas(this,1200,120,80,35);
+        destino=new CampoIngresarCiudad(this,1300,50,100,30);
+        asientoSeleccionada=new CampoAsientoSeleccionado(this,1200,30,80,80);
+        CampoHoraSel c = new CampoHoraSel(this,1430,100,80,30);
+
         new BotonSelHorario(this,"06:00",1300,100,120,30,c);
         new BotonSelHorario(this,"12:00",1300,130,120,30,c);
         new BotonSelHorario(this,"18:00",1300,160,120,30,c);
         new BotonSelHorario(this,"00:00",1300,190,120,30,c);
+
         new BotonSelBus(this,"Confirmar Bus",1300,230,120,30);
         new BotonConfirmar(this,"CONFIRMAR COMPRA",1300,280,180,30);
-
-        new Boton1Piso(this,1200,200,80,40,"1PISO");
-        new Boton2Piso(this,1200,250,80,40,"2PISO");
-
-        destino=new CampoIngresarCiudad(this,1300,50,100,30);
-        asientoSeleccionada=new CampoAsientoSeleccionado(this,1200,30,80,80);
+        new Boton1Piso(this,1430,140,80,40,"1PISO");
+        new Boton2Piso(this,1430,190,80,40,"2PISO");
         new BotonSelCiudad(this,"Enviar",1405,50,80,30);
 
         this.addMouseListener(new MouseListener() {
@@ -104,12 +104,9 @@ public class PantallaPrincipal extends JPanel {
     }
     public JTextField getDestino(){return destino;}
     public JTextField getAsientoSeleccionada() {return asientoSeleccionada;}
-    public PantallaAutobuses getAutobus() {return autobus;}
+
     public void setHorario(String horario) {this.horario = horario;}
     public void setCiudad(String ciudad) {this.ciudad = ciudad;}
-    public Asiento getAsientoSeleccionado(){
-        return asientoSeleccionado;
-    }
     public String getCiudad(){
         return ciudad;
     }
@@ -133,4 +130,7 @@ public class PantallaPrincipal extends JPanel {
         return tipoBus;
     }
     public void setAutobus(PantallaAutobuses autobus) {this.autobus = autobus;}
+    public PantallaAutobuses getAutobus() {return autobus;}
+
+    public JTextArea getaCaracteristicas() {return aCaracteristicas;}
 }

@@ -7,8 +7,8 @@ public class RecorridoTemuco extends Recorrido {
         Director d = new Director();
         BusBuilder b = new BusBuilder();
 
-        d.Bus1PisoSimple(b, "Matutino");
-        busesDisponibles.add(b.getBus());
+        //d.Bus1PisoSimple(b, "Matutino");
+        //busesDisponibles.add(b.getBus());
         d.Bus1PisoMedio(b, "Matutino");
         busesDisponibles.add(b.getBus());
         d.Bus1PisoSimple(b, "Mediodia");

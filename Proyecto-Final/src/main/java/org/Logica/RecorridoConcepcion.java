@@ -9,16 +9,16 @@ public class RecorridoConcepcion extends Recorrido {
 
         d.Bus1PisoMedio(b, "Matutino");
         busesDisponibles.add(b.getBus());
-        d.Bus1PisoSimple(b, "Mediodia");
-        busesDisponibles.add(b.getBus());
+        //d.Bus1PisoSimple(b, "Mediodia");
+        //busesDisponibles.add(b.getBus());
         d.Bus1PisoMedio(b, "Mediodia");
         busesDisponibles.add(b.getBus());
         d.Bus1PisoSimple(b, "Tarde");
         busesDisponibles.add(b.getBus());
-        d.Bus1PisoMedio(b, "Tarde");
-        busesDisponibles.add(b.getBus());
-        d.Bus1PisoMedio(b,  "Nocturno");
-        busesDisponibles.add(b.getBus());
+        //d.Bus1PisoMedio(b, "Tarde");
+        //busesDisponibles.add(b.getBus());
+        //d.Bus1PisoMedio(b,  "Nocturno");
+        //busesDisponibles.add(b.getBus());
         d.Bus1PisoDeluxe(b, "Nocturno");
         busesDisponibles.add(b.getBus());
 

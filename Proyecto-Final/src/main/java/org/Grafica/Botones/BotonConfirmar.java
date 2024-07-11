@@ -19,6 +19,7 @@ public class BotonConfirmar extends Boton {
         this.addActionListener(e -> {
             pantallaPrincipal.getAutobus().getAsientoElegido().getAsientoAsociado().ocuparAsiento();
             pantallaPrincipal.getAutobus().getAsientoElegido().setBackground(Color.RED);
+            pantallaPrincipal.getAutobus().getAsientoElegido().setEnabled(false);
         });
     }
 }
