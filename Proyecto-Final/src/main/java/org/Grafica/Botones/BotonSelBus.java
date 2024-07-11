@@ -28,7 +28,6 @@ public class BotonSelBus extends Boton {
                     if (Objects.equals(pant.get(i).getBusAsociado().getDestino(), pantallaPrincipal.getCiudad())) {
                         if (Objects.equals(pant.get(i).getBusAsociado().getHorario(), pantallaPrincipal.getHorario())) {
                             if (pant.get(i).getBusAsociado().getAsientos().size() == pantallaPrincipal.getTipoBus()) {
-                                System.out.println(i);
                                 pantallaPrincipal.setAutobus(pant.get(i));
                                 pant.get(i).setVisible(true);
                             }

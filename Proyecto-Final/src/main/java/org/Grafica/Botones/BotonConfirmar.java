@@ -3,6 +3,7 @@ package org.Grafica.Botones;
 import org.Grafica.PantallaAutobuses;
 import org.Grafica.PantallaPrincipal;
 import org.Logica.Asiento;
+import org.Logica.AsientoOcupadoException;
 
 import java.awt.*;
 
@@ -17,9 +18,20 @@ public class BotonConfirmar extends Boton {
     @Override
     public void actionListener() {
         this.addActionListener(e -> {
-            pantallaPrincipal.getAutobus().getAsientoElegido().getAsientoAsociado().ocuparAsiento();
-            pantallaPrincipal.getAutobus().getAsientoElegido().setBackground(Color.RED);
-            pantallaPrincipal.getAutobus().getAsientoElegido().setEnabled(false);
+            try {
+                Asiento a=pantallaPrincipal.getAutobus().getAsientoElegido().getAsientoAsociado();
+                int i = 0;
+                while (i < a.getAsiento().length() && !Character.isDigit(a.getAsiento().charAt(i))) {
+                    i++;
+                }
+                String c = a.getAsiento().substring(0, i);
+                int f = Integer.parseInt(a.getAsiento().substring(i));
+                pantallaPrincipal.getAutobus().getBusAsociado().reservarAsiento(c,f);
+                pantallaPrincipal.getAutobus().getAsientoElegido().setBackground(Color.RED);
+            }catch (AsientoOcupadoException ex){
+                pantallaPrincipal.getAutobus().getAsientoElegido().setBackground(Color.RED);
+                pantallaPrincipal.noAsiento(ex.getMessage());
+            }
         });
     }
 }

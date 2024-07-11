@@ -102,6 +102,9 @@ public class PantallaPrincipal extends JPanel {
     @Override
     public void paintComponent(Graphics G){
         super.paintComponent(G);
+        G.setFont(new Font("Arial", Font.PLAIN, 20));
+        G.setColor(Color.WHITE);
+        G.drawString("Escriba ciudad ", 1300, 40);
     }
     public JTextField getDestino(){return destino;}
     public JTextField getAsientoSeleccionada() {return asientoSeleccionada;}
@@ -141,5 +144,8 @@ public class PantallaPrincipal extends JPanel {
     }
     public void noHorario(){
         JOptionPane.showMessageDialog(null,"Falta seleccionar un horario","ERROR",JOptionPane.ERROR_MESSAGE);
+    }
+    public void noAsiento(String s){
+        JOptionPane.showMessageDialog(null,s,"ERROR",JOptionPane.ERROR_MESSAGE);
     }
 }
