@@ -15,7 +15,7 @@ El sistema debe mostrar un menú que permita seleccionar el autobús en función
 
 Diagrama UML de clases:
 
-![Reserva asientos](https://github.com/MVergar4/Proyecto-Final/assets/167582843/5b7b4ffe-ab07-4eda-81c9-c53ad86e7c22)
+![Reserva asientos](https://github.com/user-attachments/assets/b8a850f1-40f5-4071-aa1b-5a52ffa0c01d)
 
 Diagrama UML de casos de uso:
 
