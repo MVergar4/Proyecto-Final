@@ -112,9 +112,11 @@ public class PantallaPrincipal extends JPanel {
     @Override
     public void paintComponent(Graphics G){
         super.paintComponent(G);
-        G.setFont(new Font("Arial", Font.PLAIN, 20));
+        G.setFont(new Font("Arial", Font.PLAIN, 11));
         G.setColor(Color.WHITE);
         G.drawString("Escriba ciudad ", 1300, 40);
+        G.setFont(new Font("Arial",Font.PLAIN,11));
+        G.drawString("Ciudades disponibles: Santiago,Temuco,Chillan y Concepcion",1200,20);
     }
     /** Getters de las variables privadas*/
     public JTextField getDestino(){return destino;}
